@@ -1327,7 +1327,7 @@
         </div>
         <div class="services-grid reveal">
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Video%202.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -1337,7 +1337,7 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Video%203.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -1347,7 +1347,7 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Video%204.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -1357,7 +1357,7 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Video%205.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -1367,7 +1367,7 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Video%206.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -1377,7 +1377,7 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Video%207.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -2080,22 +2080,22 @@
     </div>
     <div class="vwall-grid">
         <div class="vwall-item">
-            <video autoplay muted loop playsinline preload="none">
+            <video autoplay muted loop playsinline preload="metadata">
                 <source src="Videos/Video%201.mp4" type="video/mp4">
             </video>
         </div>
         <div class="vwall-item">
-            <video autoplay muted loop playsinline preload="none">
+            <video autoplay muted loop playsinline preload="metadata">
                 <source src="Videos/Video%202.mp4" type="video/mp4">
             </video>
         </div>
         <div class="vwall-item">
-            <video autoplay muted loop playsinline preload="none">
+            <video autoplay muted loop playsinline preload="metadata">
                 <source src="Videos/Video%203.mp4" type="video/mp4">
             </video>
         </div>
         <div class="vwall-item">
-            <video autoplay muted loop playsinline preload="none">
+            <video autoplay muted loop playsinline preload="metadata">
                 <source src="Videos/Video%204.mp4" type="video/mp4">
             </video>
         </div>
@@ -2238,12 +2238,20 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
 
-    // Lazy-load service card videos on hover
-    document.querySelectorAll('.svc-card, .vwall-item').forEach(card => {
-        const video = card.querySelector('video');
-        if (video) {
-            video.load();
-        }
+    // Force-play all muted videos when they enter viewport (fixes mobile autoplay)
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const vid = entry.target;
+            if (entry.isIntersecting) {
+                vid.play().catch(() => {});
+            } else {
+                vid.pause();
+            }
+        });
+    }, { threshold: 0.25 });
+
+    document.querySelectorAll('video[muted]').forEach(vid => {
+        videoObserver.observe(vid);
     });
 </script>
 
