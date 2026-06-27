@@ -1137,8 +1137,13 @@
             .raia-col:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
         }
 
-        /* SVG lake map hidden */
-        .lake-svg-wrap { display: none; }
+        /* SVG lake map — below raia videos */
+        #raias { display: flex; flex-direction: column; }
+        #raias > .container { order: 0; }
+        #raias > .raias-cols { order: 1; }
+        #raias > .raias-videos { order: 2; }
+        #raias > .lake-svg-wrap { order: 3; }
+        .lake-svg-wrap { max-height: 420px; overflow: hidden; }
 
         /* ── RAIAS LEVEL VIDEOS ── */
         .raias-videos {
