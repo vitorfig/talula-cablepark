@@ -2331,23 +2331,16 @@
         }
     }
 
-    // Unmute when Day Use section enters viewport (after user has interacted with page)
-    let userHasInteracted = false;
-    window.addEventListener('click', () => { userHasInteracted = true; }, { once: true });
-    window.addEventListener('scroll', () => { userHasInteracted = true; }, { once: true });
-
-    if (dayuseVid) {
-        const dayuseObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && userHasInteracted && dayuseVid.muted) {
-                    dayuseVid.muted = false;
-                    dayuseBtnIconMuted.style.display = 'none';
-                    dayuseBtnIconOn.style.display = 'block';
-                }
-            });
-        }, { threshold: 0.4 });
-        dayuseObserver.observe(dayuseVid);
+    // Unmute Day Use video on first click or scroll anywhere
+    function activateDayuseSound() {
+        if (dayuseVid && dayuseVid.muted) {
+            dayuseVid.muted = false;
+            if (dayuseBtnIconMuted) dayuseBtnIconMuted.style.display = 'none';
+            if (dayuseBtnIconOn)    dayuseBtnIconOn.style.display    = 'block';
+        }
     }
+    window.addEventListener('scroll', activateDayuseSound, { once: true });
+    window.addEventListener('click',  activateDayuseSound, { once: true });
 
     // Floats: play Floats1 then Floats2 then Floats1... infinitely
     const floatsVid = document.getElementById('floats-vid');
