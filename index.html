@@ -1143,7 +1143,13 @@
         #raias > .raias-cols { order: 1; }
         #raias > .raias-videos { order: 2; }
         #raias > .lake-svg-wrap { order: 3; }
-        .lake-svg-wrap svg { width: 100%; max-height: 520px; display: block; }
+        .lake-svg-wrap {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .lake-svg-wrap svg { width: 100%; display: block; }
 
         /* ── RAIAS LEVEL VIDEOS ── */
         .raias-videos {
