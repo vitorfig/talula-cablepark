@@ -1338,18 +1338,19 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
-                    <source src="Videos/Video%203.mp4" type="video/mp4">
+                <video id="floats-vid" autoplay muted playsinline preload="none"
+                       data-srcs='["Videos/Atividades/Floats1.mp4","Videos/Atividades/Floats2.mp4"]'>
+                    <source src="Videos/Atividades/Floats1.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
                     <span class="svc-price">R$ 45 · 45 min</span>
-                    <div class="svc-name">Parque Inflável</div>
-                    <div class="svc-desc">Das 10h às 16h, de hora em hora. Idade mínima 7 anos.</div>
+                    <div class="svc-name">Floats</div>
+                    <div class="svc-desc">Parque Inflável na represa. Das 10h às 16h, de hora em hora. Idade mínima 7 anos.</div>
                 </div>
             </div>
             <div class="svc-card">
                 <video autoplay muted loop playsinline preload="none">
-                    <source src="Videos/Video%204.mp4" type="video/mp4">
+                    <source src="Videos/Atividades/Piscina.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
                     <span class="svc-price">incluso no day use</span>
@@ -1359,7 +1360,7 @@
             </div>
             <div class="svc-card">
                 <video autoplay muted loop playsinline preload="none">
-                    <source src="Videos/Video%205.mp4" type="video/mp4">
+                    <source src="Videos/Atividades/caiaque.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
                     <span class="svc-price">R$ 40 · 30 min</span>
@@ -1369,7 +1370,7 @@
             </div>
             <div class="svc-card">
                 <video autoplay muted loop playsinline preload="none">
-                    <source src="Videos/Video%206.mp4" type="video/mp4">
+                    <source src="Videos/Atividades/stand%20up.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
                     <span class="svc-price">R$ 40 · 30 min</span>
@@ -2251,6 +2252,18 @@
         });
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
+
+    // Floats: alternate between Floats1 and Floats2 infinitely
+    const floatsVid = document.getElementById('floats-vid');
+    if (floatsVid) {
+        const floatsSrcs = JSON.parse(floatsVid.dataset.srcs);
+        let floatsIdx = 0;
+        floatsVid.addEventListener('ended', () => {
+            floatsIdx = (floatsIdx + 1) % floatsSrcs.length;
+            floatsVid.src = floatsSrcs[floatsIdx];
+            floatsVid.play().catch(() => {});
+        });
+    }
 
     // Play videos when visible, pause when off-screen (fixes mobile + reduces initial load)
     const videoObserver = new IntersectionObserver((entries) => {
