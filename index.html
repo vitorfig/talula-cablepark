@@ -2341,14 +2341,15 @@
         window.addEventListener('click', activateDayuseSound, { once: true });
     }
 
-    // Floats: alternate between Floats1 and Floats2 infinitely
+    // Floats: play Floats1 then Floats2 then Floats1... infinitely
     const floatsVid = document.getElementById('floats-vid');
     if (floatsVid) {
-        const floatsSrcs = JSON.parse(floatsVid.dataset.srcs);
+        const floatsSrcs = ['Videos/Atividades/Floats1.mp4', 'Videos/Atividades/Floats2.mp4'];
         let floatsIdx = 0;
         floatsVid.addEventListener('ended', () => {
             floatsIdx = (floatsIdx + 1) % floatsSrcs.length;
             floatsVid.src = floatsSrcs[floatsIdx];
+            floatsVid.load();
             floatsVid.play().catch(() => {});
         });
     }
