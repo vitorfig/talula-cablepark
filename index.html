@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talula Cable Park</title>
+    <!-- Priority preloads -->
+    <link rel="preload" as="video" href="Videos/Video%201.mp4" type="video/mp4">
+    <link rel="preload" as="image" href="Videos/Cabrito/cabrito%20novo.png">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -117,6 +120,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(160deg, #001e28 0%, #004a5e 45%, #000000 100%);
         }
 
         #hero-video {
@@ -546,10 +550,10 @@
         }
 
         @media (max-width: 900px) {
-            .dayuse-video-inner { grid-template-columns: 1fr; min-height: auto; }
+            .dayuse-video-inner { grid-template-columns: 1fr; min-height: auto; padding: 2rem; }
             .dayuse-video-side { height: 55vw; min-height: 280px; }
             .dayuse-video-side::after { background: linear-gradient(to top, var(--dark) 0%, transparent 60%); }
-            .dayuse-text-side { padding: 3rem 2rem; }
+            .dayuse-text-side { padding: 2rem 0; }
         }
 
         /* ===================== DAY USE ===================== */
@@ -1043,6 +1047,8 @@
             #navbar { padding: 1rem 1.5rem; }
             #navbar.scrolled { padding: 0.75rem 1.5rem; }
             .nav-links { display: none; }
+            .parceiros-logo-item { padding: 0 2.5rem; min-width: 200px; }
+            .parceiros-logo-item img { height: 90px; }
             .hamburger { display: flex; }
 
             .nav-links.open {
@@ -1074,6 +1080,12 @@
             .vwall-grid { grid-template-columns: 1fr 1fr; }
             .dayuse-grid { grid-template-columns: repeat(2, 1fr); }
             .mapa-info-grid { grid-template-columns: 1fr; }
+            .equipe-grid { grid-template-columns: 1fr !important; }
+            .parceiros-logo-item { padding: 0 1.5rem !important; min-width: 160px !important; }
+            .parceiros-logo-item img { height: 70px !important; }
+            .price-thead, .price-row { grid-template-columns: 1.5fr 1fr !important; font-size: 0.8rem; }
+            .price-thead .col-d, .price-row .pdur, .price-thead span:last-child, .price-row .pnote { display: none !important; }
+            .dayuse-video-inner { padding: 1.5rem !important; }
         }
 
         /* ===================== RAIAS ===================== */
@@ -1214,11 +1226,9 @@
         }
         .parceiros-title {
             text-align: center;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 3.5px;
-            text-transform: uppercase;
-            color: rgba(0,0,0,0.35);
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: rgba(0,0,0,0.65);
             margin-bottom: 2.2rem;
         }
         .parceiros-track-wrap {
@@ -1251,13 +1261,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 4rem;
+            padding: 0 6rem;
             flex-shrink: 0;
         }
         .parceiros-logo-item img {
-            height: 75px;
+            height: 120px;
             width: auto;
-            max-width: 220px;
+            max-width: 300px;
             object-fit: contain;
             opacity: 0.85;
             transition: opacity 0.3s;
@@ -1268,7 +1278,7 @@
             to   { transform: translateX(-50%); }
         }
         /* Garante que a track nunca seja menor que a tela */
-        .parceiros-logo-item { min-width: 200px; }
+        .parceiros-logo-item { min-width: 280px; }
 
         /* ===================== REVEAL ANIMATION ===================== */
         .reveal {
@@ -1306,7 +1316,7 @@
 
 <!-- ===== HERO ===== -->
 <section id="hero">
-    <video id="hero-video" autoplay muted loop playsinline preload="auto">
+    <video id="hero-video" autoplay muted loop playsinline preload="auto" fetchpriority="high">
         <source src="Videos/Video%201.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -1332,7 +1342,7 @@
 <section id="dayuse-video">
     <div class="dayuse-video-inner">
         <div class="dayuse-video-side" style="position:relative;">
-            <video id="dayuse-vid" autoplay muted loop playsinline preload="auto">
+            <video id="dayuse-vid" autoplay muted loop playsinline preload="none">
                 <source src="Videos/Video%207.mp4" type="video/mp4">
             </video>
             <button id="dayuse-sound-btn" onclick="toggleDayuseSound()" title="Ativar/desativar som" style="
@@ -1478,7 +1488,7 @@
 <!-- ===== ESPAÇO ===== -->
 <section id="espaco" style="background:#0b141e; padding:5rem 0;">
     <div class="container">
-        <div class="services-header reveal">
+        <div class="services-intro reveal">
             <div>
                 <span class="section-tag">O Espaço</span>
                 <h2 class="section-title" style="color:#fff;">Um lugar feito pra você ficar</h2>
@@ -2010,7 +2020,7 @@
 
 <!-- ===== PARCEIROS ===== -->
 <section class="parceiros-section">
-    <p class="parceiros-title">Clientes &amp; Parceiros</p>
+    <p class="parceiros-title">Parceiros</p>
     <div class="parceiros-track-wrap">
         <div class="parceiros-track">
             <!-- set 1 -->
@@ -2420,7 +2430,7 @@
     }, { threshold: 0.15 });
 
     // Hero loads eagerly; all others load on demand
-    document.querySelectorAll('video[muted]').forEach(vid => {
+    document.querySelectorAll('video').forEach(vid => {
         if (vid.id !== 'hero-video') {
             videoObserver.observe(vid);
         }
@@ -2429,7 +2439,7 @@
 
 <!-- Cabrito passeando -->
 <div style="position:fixed;bottom:0;z-index:8888;pointer-events:none;animation:cabrito-move 16s linear infinite;">
-    <img src="Videos/Cabrito/cabrito%20novo.png" alt="cabrito" style="height:144px;width:auto;display:block;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.4));">
+    <img src="Videos/Cabrito/cabrito%20novo.png" alt="cabrito" style="height:122px;width:auto;display:block;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.4));">
 </div>
 
 <style>
