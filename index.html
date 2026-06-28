@@ -1360,7 +1360,7 @@
 <section id="dayuse-video">
     <div class="dayuse-video-inner">
         <div class="dayuse-video-side" style="position:relative;">
-            <video id="dayuse-vid" autoplay muted loop playsinline preload="none">
+            <video id="dayuse-vid" autoplay muted loop playsinline preload="metadata">
                 <source src="Videos/Video%207.mp4" type="video/mp4">
             </video>
             <button id="dayuse-sound-btn" onclick="toggleDayuseSound()" title="Ativar/desativar som" style="
@@ -1438,7 +1438,7 @@
         </div>
         <div class="services-grid reveal">
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Atividades/Wakeboard.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -1448,7 +1448,7 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video id="floats-vid" autoplay muted playsinline preload="none"
+                <video id="floats-vid" autoplay muted playsinline preload="metadata"
                        data-srcs='["Videos/Atividades/Floats1.mp4","Videos/Atividades/Floats2.mp4"]'>
                     <source src="Videos/Atividades/Floats1.mp4" type="video/mp4">
                 </video>
@@ -1459,7 +1459,7 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Atividades/Natacao%20em%20aguas%20abertas%201.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -1469,7 +1469,7 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Atividades/caiaque.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -1479,7 +1479,7 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Atividades/stand%20up.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -1489,7 +1489,7 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Video%207.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -1515,7 +1515,7 @@
         </div>
         <div class="services-grid reveal" style="margin-top:3rem;">
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Espa%C3%A7o/Piscina.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -1525,7 +1525,7 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Espa%C3%A7o/Praia.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -1535,7 +1535,7 @@
                 </div>
             </div>
             <div class="svc-card">
-                <video autoplay muted loop playsinline preload="none">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Espa%C3%A7o/Pet%20Friendly.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
@@ -2191,22 +2191,22 @@
     </div>
     <div class="vwall-grid">
         <div class="vwall-item">
-            <video autoplay muted loop playsinline preload="none">
+            <video autoplay muted loop playsinline preload="metadata">
                 <source src="Videos/Video%201.mp4" type="video/mp4">
             </video>
         </div>
         <div class="vwall-item">
-            <video autoplay muted loop playsinline preload="none">
+            <video autoplay muted loop playsinline preload="metadata">
                 <source src="Videos/Video%202.mp4" type="video/mp4">
             </video>
         </div>
         <div class="vwall-item">
-            <video autoplay muted loop playsinline preload="none">
+            <video autoplay muted loop playsinline preload="metadata">
                 <source src="Videos/Video%203.mp4" type="video/mp4">
             </video>
         </div>
         <div class="vwall-item">
-            <video autoplay muted loop playsinline preload="none">
+            <video autoplay muted loop playsinline preload="metadata">
                 <source src="Videos/Video%204.mp4" type="video/mp4">
             </video>
         </div>
@@ -2432,20 +2432,18 @@
         });
     }
 
-    // Play videos when visible, pause when off-screen (fixes mobile)
+    // Play videos when visible — funciona no iOS com muted+playsinline
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const vid = entry.target;
             if (entry.isIntersecting) {
-                const tryPlay = () => vid.play().catch(() => {});
-                if (vid.preload === 'none' && vid.readyState === 0) {
-                    vid.load();
-                    vid.addEventListener('canplay', tryPlay, { once: true });
-                } else if (vid.readyState >= 3) {
-                    tryPlay();
-                } else {
-                    vid.addEventListener('canplay', tryPlay, { once: true });
+                // iOS prefere src direto no elemento em vez de <source>
+                if (!vid.getAttribute('src')) {
+                    const s = vid.querySelector('source');
+                    if (s) vid.setAttribute('src', s.getAttribute('src'));
                 }
+                vid.load();
+                vid.play().catch(() => {});
             } else {
                 vid.pause();
             }
