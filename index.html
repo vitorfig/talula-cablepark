@@ -2432,49 +2432,21 @@
         });
     }
 
-    // iOS/WKWebView (WhatsApp, Instagram) bloqueia play() sem gesto do usuario.
-    // Solucao: fila de videos visiveis, dispara todos no primeiro toque/scroll.
-    let userInteracted = false;
-    const pendingPlay = new Set();
-
-    function playVid(vid) {
-        vid.play().catch(() => {});
-    }
-
-    function onUserInteraction() {
-        if (userInteracted) return;
-        userInteracted = true;
-        pendingPlay.forEach(vid => playVid(vid));
-        pendingPlay.clear();
-    }
-    ['touchstart', 'scroll', 'click', 'keydown'].forEach(e =>
-        window.addEventListener(e, onUserInteraction, { once: true, passive: true })
-    );
-
-    const videoObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const vid = entry.target;
-            if (entry.isIntersecting) {
-                // Define src direto na 1a vez (mais confiavel no iOS que <source>)
-                if (!vid.getAttribute('src')) {
-                    const s = vid.querySelector('source');
-                    if (s) vid.src = s.getAttribute('src');
+    // Autoplay nativo iOS: atributo HTML autoplay+muted+playsinline funciona sem JS.
+    // JS play() em observer async pode ser bloqueado pelo WKWebView.
+    // Apenas pausa videos fora da tela para poupar CPU/bateria.
+    if ('IntersectionObserver' in window) {
+        const vidObs = new IntersectionObserver((entries) => {
+            entries.forEach(({ target: vid, isIntersecting }) => {
+                if (!isIntersecting) {
+                    vid.pause();
+                } else if (vid.paused && vid.readyState >= 2) {
+                    vid.play().catch(() => {});
                 }
-                if (userInteracted) {
-                    playVid(vid);
-                } else {
-                    pendingPlay.add(vid); // aguarda gesto do usuario
-                }
-            } else {
-                pendingPlay.delete(vid);
-                vid.pause();
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('video').forEach(vid => {
-        if (vid.id !== 'hero-video') videoObserver.observe(vid);
-    });
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('video:not(#hero-video)').forEach(v => vidObs.observe(v));
+    }
 </script>
 
 <!-- Cabrito passeando -->
