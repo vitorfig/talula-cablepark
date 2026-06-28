@@ -1077,7 +1077,6 @@
             .vwall-grid { grid-template-columns: 1fr 1fr; }
             .dayuse-grid { grid-template-columns: repeat(2, 1fr); }
             .mapa-info-grid { grid-template-columns: 1fr; }
-            .equipe-grid { grid-template-columns: 1fr !important; }
             .parceiros-logo-item { padding: 0 1.5rem !important; min-width: 160px !important; }
             .parceiros-logo-item img { height: 70px !important; }
             .price-thead, .price-row { grid-template-columns: 1.5fr 1fr !important; font-size: 0.8rem; }
@@ -1210,7 +1209,6 @@
         .sound-btn svg { width: 17px; height: 17px; fill: white; display: block; }
         @media (max-width: 900px) {
             .raias-videos { grid-template-columns: 1fr; height: auto; }
-            .equipe-grid { grid-template-columns: 1fr 1fr !important; gap: 1.5rem !important; }
             .raia-video-item { aspect-ratio: 16/9; }
         }
 
@@ -1277,6 +1275,29 @@
         /* Garante que a track nunca seja menor que a tela */
         .parceiros-logo-item { min-width: 280px; }
 
+
+        /* ===================== EQUIPE ===================== */
+        .equipe-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .equipe-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.1rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+        @media (max-width: 900px) {
+            .equipe-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            .equipe-photo { width: 150px; height: 150px; }
+        }
+        @media (max-width: 480px) {
+            .equipe-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .equipe-photo { width: 140px; height: 140px; }
+        }
         /* ===================== REVEAL ANIMATION ===================== */
         .reveal {
             opacity: 0;
@@ -2411,20 +2432,25 @@
         });
     }
 
-    // Play videos when visible, pause when off-screen (fixes mobile + reduces initial load)
+    // Play videos when visible, pause when off-screen (fixes mobile)
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const vid = entry.target;
             if (entry.isIntersecting) {
+                const tryPlay = () => vid.play().catch(() => {});
                 if (vid.preload === 'none' && vid.readyState === 0) {
-                    vid.load(); // trigger download only when visible
+                    vid.load();
+                    vid.addEventListener('canplay', tryPlay, { once: true });
+                } else if (vid.readyState >= 3) {
+                    tryPlay();
+                } else {
+                    vid.addEventListener('canplay', tryPlay, { once: true });
                 }
-                vid.play().catch(() => {});
             } else {
                 vid.pause();
             }
         });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
 
     // Hero loads eagerly; all others load on demand
     document.querySelectorAll('video').forEach(vid => {
