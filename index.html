@@ -2427,6 +2427,39 @@
     });
 </script>
 
+<!-- Cabrito passeando -->
+<div id="cabrito-walk" style="
+    position: fixed;
+    bottom: 0;
+    left: 100vw;
+    z-index: 8888;
+    pointer-events: none;
+    animation: cabrito-move 18s linear infinite;
+    transform-origin: center bottom;
+">
+    <img src="Videos/Cabrito/cabrito.png" alt="cabrito" style="
+        height: 110px;
+        width: auto;
+        display: block;
+        animation: cabrito-bob 0.45s ease-in-out infinite alternate;
+        filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
+    ">
+</div>
+
+<style>
+    @keyframes cabrito-move {
+        0%   { left: 110vw; transform: scaleX(-1); }
+        48%  { left: -160px; transform: scaleX(-1); }
+        50%  { left: -160px; transform: scaleX(1); }
+        98%  { left: 110vw; transform: scaleX(1); }
+        100% { left: 110vw; transform: scaleX(-1); }
+    }
+    @keyframes cabrito-bob {
+        from { transform: translateY(0px) rotate(-1.5deg); }
+        to   { transform: translateY(-6px) rotate(1.5deg); }
+    }
+</style>
+
 <!-- Floating WhatsApp button -->
 <a href="https://wa.me/5516997276197" target="_blank" id="wa-float" title="Fale pelo WhatsApp" style="
     position:fixed; bottom:24px; right:24px; z-index:9999;
