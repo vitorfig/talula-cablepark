@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 260" width="220" height="260">
+
+  <!-- Wakeboard -->
+  <rect x="10" y="218" width="200" height="32" rx="16" fill="#e8dcc8" stroke="#b09a78" stroke-width="2"/>
+  <rect x="24" y="221" width="172" height="26" rx="12" fill="#d4c4a8"/>
+  <!-- grip tape stripes -->
+  <line x1="55" y1="221" x2="55" y2="247" stroke="#b09a78" stroke-width="1.2" opacity="0.5"/>
+  <line x1="80" y1="221" x2="80" y2="247" stroke="#b09a78" stroke-width="1.2" opacity="0.5"/>
+  <line x1="105" y1="221" x2="105" y2="247" stroke="#b09a78" stroke-width="1.2" opacity="0.5"/>
+  <line x1="130" y1="221" x2="130" y2="247" stroke="#b09a78" stroke-width="1.2" opacity="0.5"/>
+  <line x1="155" y1="221" x2="155" y2="247" stroke="#b09a78" stroke-width="1.2" opacity="0.5"/>
+  <!-- board brand text -->
+  <text x="110" y="239" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="9" font-weight="900" fill="#9a8060" letter-spacing="3" opacity="0.7">TALULA</text>
+
+  <!-- Back legs -->
+  <rect x="62" y="196" width="14" height="26" rx="7" fill="#e8e0d0" stroke="#c8b89a" stroke-width="1.5"/>
+  <ellipse cx="69" cy="222" rx="10" ry="5" fill="#c8b89a"/>
+  <!-- Front legs -->
+  <rect x="136" y="196" width="14" height="26" rx="7" fill="#e8e0d0" stroke="#c8b89a" stroke-width="1.5"/>
+  <ellipse cx="143" cy="222" rx="10" ry="5" fill="#c8b89a"/>
+
+  <!-- Body -->
+  <ellipse cx="110" cy="180" rx="58" ry="42" fill="#f0ebe0" stroke="#c8b89a" stroke-width="2"/>
+  <!-- belly patch -->
+  <ellipse cx="110" cy="188" rx="34" ry="24" fill="#fff8f0" opacity="0.7"/>
+
+  <!-- Tail -->
+  <path d="M 58,162 Q 40,148 48,138 Q 54,130 62,142" fill="#e8e0d0" stroke="#c8b89a" stroke-width="1.5"/>
+
+  <!-- Neck -->
+  <rect x="96" y="138" width="30" height="28" rx="14" fill="#f0ebe0" stroke="#c8b89a" stroke-width="1.5"/>
+
+  <!-- Head -->
+  <ellipse cx="112" cy="120" rx="36" ry="32" fill="#f0ebe0" stroke="#c8b89a" stroke-width="2"/>
+
+  <!-- Ear left -->
+  <ellipse cx="80" cy="108" rx="10" ry="16" fill="#e8e0d0" stroke="#c8b89a" stroke-width="1.5" transform="rotate(-20,80,108)"/>
+  <ellipse cx="80" cy="108" rx="5" ry="10" fill="#f5c4c4" transform="rotate(-20,80,108)"/>
+  <!-- Ear right -->
+  <ellipse cx="144" cy="108" rx="10" ry="16" fill="#e8e0d0" stroke="#c8b89a" stroke-width="1.5" transform="rotate(20,144,108)"/>
+  <ellipse cx="144" cy="108" rx="5" ry="10" fill="#f5c4c4" transform="rotate(20,144,108)"/>
+
+  <!-- Horns -->
+  <path d="M 90,95 Q 82,75 88,62 Q 92,58 96,68 Q 94,80 94,92" fill="#d4b896" stroke="#b09a78" stroke-width="1.5"/>
+  <path d="M 132,95 Q 140,75 134,62 Q 130,58 126,68 Q 128,80 128,92" fill="#d4b896" stroke="#b09a78" stroke-width="1.5"/>
+
+  <!-- Face patch -->
+  <ellipse cx="112" cy="128" rx="22" ry="18" fill="#fff8f0" opacity="0.8"/>
+
+  <!-- Eyes -->
+  <ellipse cx="100" cy="116" rx="7" ry="8" fill="white" stroke="#555" stroke-width="1.5"/>
+  <ellipse cx="124" cy="116" rx="7" ry="8" fill="white" stroke="#555" stroke-width="1.5"/>
+  <!-- pupils -->
+  <ellipse cx="101" cy="118" rx="4" ry="5" fill="#222"/>
+  <ellipse cx="125" cy="118" rx="4" ry="5" fill="#222"/>
+  <!-- eye shine -->
+  <circle cx="103" cy="115" r="1.5" fill="white"/>
+  <circle cx="127" cy="115" r="1.5" fill="white"/>
+
+  <!-- Eyebrows (cute raised) -->
+  <path d="M 95,108 Q 100,104 106,107" stroke="#a08060" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 118,107 Q 124,104 129,108" stroke="#a08060" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Nose -->
+  <ellipse cx="112" cy="134" rx="12" ry="8" fill="#e8c0b4" stroke="#c89898" stroke-width="1"/>
+  <!-- nostrils -->
+  <ellipse cx="107" cy="135" rx="3" ry="2.5" fill="#c08080"/>
+  <ellipse cx="117" cy="135" rx="3" ry="2.5" fill="#c08080"/>
+
+  <!-- Mouth smile -->
+  <path d="M 104,143 Q 112,150 120,143" stroke="#a07060" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Beard -->
+  <path d="M 105,148 Q 112,162 119,148" fill="#e8e0d0" stroke="#c8b89a" stroke-width="1.5"/>
+  <path d="M 108,150 Q 112,166 116,150" fill="#e8e0d0" stroke="#c8b89a" stroke-width="1.2"/>
+
+  <!-- Spots on body -->
+  <ellipse cx="88" cy="172" rx="12" ry="9" fill="#d4c4a4" opacity="0.5"/>
+  <ellipse cx="130" cy="185" rx="9" ry="7" fill="#d4c4a4" opacity="0.4"/>
+
+</svg>
