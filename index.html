@@ -2432,29 +2432,48 @@
         });
     }
 
-    // Play videos when visible — funciona no iOS com muted+playsinline
+    // iOS/WKWebView (WhatsApp, Instagram) bloqueia play() sem gesto do usuario.
+    // Solucao: fila de videos visiveis, dispara todos no primeiro toque/scroll.
+    let userInteracted = false;
+    const pendingPlay = new Set();
+
+    function playVid(vid) {
+        vid.play().catch(() => {});
+    }
+
+    function onUserInteraction() {
+        if (userInteracted) return;
+        userInteracted = true;
+        pendingPlay.forEach(vid => playVid(vid));
+        pendingPlay.clear();
+    }
+    ['touchstart', 'scroll', 'click', 'keydown'].forEach(e =>
+        window.addEventListener(e, onUserInteraction, { once: true, passive: true })
+    );
+
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const vid = entry.target;
             if (entry.isIntersecting) {
-                // iOS prefere src direto no elemento em vez de <source>
+                // Define src direto na 1a vez (mais confiavel no iOS que <source>)
                 if (!vid.getAttribute('src')) {
                     const s = vid.querySelector('source');
-                    if (s) vid.setAttribute('src', s.getAttribute('src'));
+                    if (s) vid.src = s.getAttribute('src');
                 }
-                vid.load();
-                vid.play().catch(() => {});
+                if (userInteracted) {
+                    playVid(vid);
+                } else {
+                    pendingPlay.add(vid); // aguarda gesto do usuario
+                }
             } else {
+                pendingPlay.delete(vid);
                 vid.pause();
             }
         });
     }, { threshold: 0.1 });
 
-    // Hero loads eagerly; all others load on demand
     document.querySelectorAll('video').forEach(vid => {
-        if (vid.id !== 'hero-video') {
-            videoObserver.observe(vid);
-        }
+        if (vid.id !== 'hero-video') videoObserver.observe(vid);
     });
 </script>
 
