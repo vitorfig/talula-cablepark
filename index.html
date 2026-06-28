@@ -2428,17 +2428,14 @@
 </script>
 
 <!-- Cabrito passeando -->
-<div style="position:fixed;bottom:0;left:-160px;z-index:8888;pointer-events:none;animation:cabrito-move 22s linear infinite;">
-    <img src="Videos/Cabrito/cabrito%20novo.png" alt="cabrito" style="height:144px;width:auto;display:block;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.4));">
-</div>
-<div style="position:fixed;bottom:0;left:-160px;z-index:8888;pointer-events:none;animation:cabrito-move 22s linear infinite;animation-delay:-11s;">
+<div style="position:fixed;bottom:0;z-index:8888;pointer-events:none;animation:cabrito-move 16s linear infinite;">
     <img src="Videos/Cabrito/cabrito%20novo.png" alt="cabrito" style="height:144px;width:auto;display:block;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.4));">
 </div>
 
 <style>
     @keyframes cabrito-move {
-        from { left: -160px; }
-        to   { left: 110vw; }
+        0%   { transform: translateX(-160px); }
+        100% { transform: translateX(110vw); }
     }
 </style>
 
