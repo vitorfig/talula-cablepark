@@ -1361,7 +1361,7 @@
     <div class="dayuse-video-inner">
         <div class="dayuse-video-side" style="position:relative;">
             <video id="dayuse-vid" autoplay muted loop playsinline preload="metadata">
-                <source src="Videos/Video%207.mp4" type="video/mp4">
+                <source src="Videos/Video%207.mp4?v=2" type="video/mp4">
             </video>
             <button id="dayuse-sound-btn" onclick="toggleDayuseSound()" title="Ativar/desativar som" style="
                 position:absolute; bottom:14px; right:14px; z-index:10;
@@ -2391,35 +2391,23 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
 
-    // Day Use video: unmute automático quando a seção fica visível
+    // Day Use video: botão de som manual (iOS exige gesto direto para áudio)
     const dayuseVid = document.getElementById('dayuse-vid');
     const dayuseBtnIconMuted = document.getElementById('dayuse-icon-muted');
     const dayuseBtnIconOn = document.getElementById('dayuse-icon-on');
-    let dayuseUserMuted = false;
-
-    function setDayuseMute(muted) {
-        dayuseVid.muted = muted;
-        if (dayuseBtnIconMuted) dayuseBtnIconMuted.style.display = muted ? 'block' : 'none';
-        if (dayuseBtnIconOn)    dayuseBtnIconOn.style.display    = muted ? 'none'  : 'block';
-    }
 
     function toggleDayuseSound() {
-        dayuseUserMuted = !dayuseVid.muted;
-        setDayuseMute(!dayuseVid.muted);
-    }
-
-    const dayuseSection = document.getElementById('dayuse-video');
-    if (dayuseSection && dayuseVid) {
-        new IntersectionObserver((entries) => {
-            entries.forEach(({ isIntersecting }) => {
-                if (isIntersecting && !dayuseUserMuted) {
-                    setDayuseMute(false);
-                } else if (!isIntersecting) {
-                    setDayuseMute(true);
-                    dayuseUserMuted = false;
-                }
-            });
-        }, { threshold: 0.4 }).observe(dayuseSection);
+        if (!dayuseVid) return;
+        if (dayuseVid.muted) {
+            dayuseVid.muted = false;
+            dayuseVid.play().catch(() => {});
+            if (dayuseBtnIconMuted) dayuseBtnIconMuted.style.display = 'none';
+            if (dayuseBtnIconOn)    dayuseBtnIconOn.style.display    = 'block';
+        } else {
+            dayuseVid.muted = true;
+            if (dayuseBtnIconMuted) dayuseBtnIconMuted.style.display = 'block';
+            if (dayuseBtnIconOn)    dayuseBtnIconOn.style.display    = 'none';
+        }
     }
 
     // Floats: play Floats1 then Floats2 then Floats1... infinitely
