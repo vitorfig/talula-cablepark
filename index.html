@@ -2391,33 +2391,36 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
 
-    // Day Use video: unmute on first user interaction, toggle button
+    // Day Use video: unmute automático quando a seção fica visível
     const dayuseVid = document.getElementById('dayuse-vid');
     const dayuseBtnIconMuted = document.getElementById('dayuse-icon-muted');
     const dayuseBtnIconOn = document.getElementById('dayuse-icon-on');
+    let dayuseUserMuted = false;
+
+    function setDayuseMute(muted) {
+        dayuseVid.muted = muted;
+        if (dayuseBtnIconMuted) dayuseBtnIconMuted.style.display = muted ? 'block' : 'none';
+        if (dayuseBtnIconOn)    dayuseBtnIconOn.style.display    = muted ? 'none'  : 'block';
+    }
 
     function toggleDayuseSound() {
-        if (dayuseVid.muted) {
-            dayuseVid.muted = false;
-            dayuseBtnIconMuted.style.display = 'none';
-            dayuseBtnIconOn.style.display = 'block';
-        } else {
-            dayuseVid.muted = true;
-            dayuseBtnIconMuted.style.display = 'block';
-            dayuseBtnIconOn.style.display = 'none';
-        }
+        dayuseUserMuted = !dayuseVid.muted;
+        setDayuseMute(!dayuseVid.muted);
     }
 
-    // Unmute Day Use video on first click or scroll anywhere
-    function activateDayuseSound() {
-        if (dayuseVid && dayuseVid.muted) {
-            dayuseVid.muted = false;
-            if (dayuseBtnIconMuted) dayuseBtnIconMuted.style.display = 'none';
-            if (dayuseBtnIconOn)    dayuseBtnIconOn.style.display    = 'block';
-        }
+    const dayuseSection = document.getElementById('dayuse-video');
+    if (dayuseSection && dayuseVid) {
+        new IntersectionObserver((entries) => {
+            entries.forEach(({ isIntersecting }) => {
+                if (isIntersecting && !dayuseUserMuted) {
+                    setDayuseMute(false);
+                } else if (!isIntersecting) {
+                    setDayuseMute(true);
+                    dayuseUserMuted = false;
+                }
+            });
+        }, { threshold: 0.4 }).observe(dayuseSection);
     }
-    window.addEventListener('scroll', activateDayuseSound, { once: true });
-    window.addEventListener('click',  activateDayuseSound, { once: true });
 
     // Floats: play Floats1 then Floats2 then Floats1... infinitely
     const floatsVid = document.getElementById('floats-vid');
