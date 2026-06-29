@@ -2440,12 +2440,17 @@
             entries.forEach(({ target: vid, isIntersecting }) => {
                 if (!isIntersecting) {
                     vid.pause();
-                } else if (vid.paused && vid.readyState >= 2) {
+                } else if (vid.paused) {
                     vid.play().catch(() => {});
                 }
             });
         }, { threshold: 0.05 });
-        document.querySelectorAll('video:not(#hero-video)').forEach(v => vidObs.observe(v));
+        document.querySelectorAll('video:not(#hero-video)').forEach(v => {
+            vidObs.observe(v);
+            v.addEventListener('canplay', function() {
+                if (this.paused) this.play().catch(() => {});
+            });
+        });
     }
 </script>
 
