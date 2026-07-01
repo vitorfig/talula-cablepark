@@ -317,8 +317,10 @@
             border-radius: 14px;
             overflow: hidden;
             aspect-ratio: 4/3;
-            cursor: default;
+            cursor: pointer;
             background: #1a2535;
+            text-decoration: none;
+            display: block;
         }
 
         .svc-card video {
@@ -356,6 +358,21 @@
                 rgba(0, 118, 148, 0.35) 60%,
                 transparent 100%
             );
+        }
+
+        .svc-overlay::after {
+            content: 'Ver detalhes →';
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0);
+            letter-spacing: 0.08em;
+            transition: color 0.3s;
+        }
+
+        .svc-card:hover .svc-overlay::after {
+            color: rgba(255,255,255,0.85);
         }
 
         .svc-price {
@@ -1440,7 +1457,7 @@
             <p class="section-sub" style="color:rgba(255,255,255,0.5);">Do iniciante ao experiente, do radical ao relaxado: tem atividade certa pra você.</p>
         </div>
         <div class="services-grid reveal">
-            <div class="svc-card">
+            <a class="svc-card" href="wakeboard.html">
                 <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Atividades/Wakeboard_hq.mp4" media="(min-width:769px)" type="video/mp4">
                     <source src="Videos/Atividades/Wakeboard.mp4" type="video/mp4">
@@ -1450,8 +1467,8 @@
                     <div class="svc-name">Wakeboard</div>
                     <div class="svc-desc">Instrutor incluso. Agendar pelo app Talula Cable Park.</div>
                 </div>
-            </div>
-            <div class="svc-card">
+            </a>
+            <a class="svc-card" href="floats.html">
                 <video id="floats-vid" autoplay muted playsinline preload="metadata"
                        data-srcs='["Videos/Atividades/Floats1.mp4","Videos/Atividades/Floats2.mp4"]'>
                     <source src="Videos/Atividades/Floats1.mp4" type="video/mp4">
@@ -1461,8 +1478,8 @@
                     <div class="svc-name">Floats</div>
                     <div class="svc-desc">Parque Inflável na represa. Das 10h às 16h, de hora em hora. Idade mínima 7 anos.</div>
                 </div>
-            </div>
-            <div class="svc-card">
+            </a>
+            <a class="svc-card" href="natacao.html">
                 <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Atividades/Natacao%20em%20aguas%20abertas%201_hq.mp4" media="(min-width:769px)" type="video/mp4">
                     <source src="Videos/Atividades/Natacao%20em%20aguas%20abertas%201.mp4" type="video/mp4">
@@ -1472,8 +1489,8 @@
                     <div class="svc-name">Natação em Águas Abertas</div>
                     <div class="svc-desc">Represa de nascente natural, água limpa e corrente.</div>
                 </div>
-            </div>
-            <div class="svc-card">
+            </a>
+            <a class="svc-card" href="caiaque.html">
                 <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Atividades/caiaque.mp4" type="video/mp4">
                 </video>
@@ -1482,8 +1499,8 @@
                     <div class="svc-name">Caiaque</div>
                     <div class="svc-desc">Colete incluso. Auxílio de instrutor para iniciantes.</div>
                 </div>
-            </div>
-            <div class="svc-card">
+            </a>
+            <a class="svc-card" href="standup.html">
                 <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Atividades/stand%20up.mp4" type="video/mp4">
                 </video>
@@ -1492,8 +1509,8 @@
                     <div class="svc-name">Stand Up Paddle</div>
                     <div class="svc-desc">Prancha própria? Use de graça, só paga a entrada.</div>
                 </div>
-            </div>
-            <div class="svc-card">
+            </a>
+            <a class="svc-card" href="dayuse.html">
                 <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Video%207_hq.mp4" media="(min-width:769px)" type="video/mp4">
                     <source src="Videos/Video%207.mp4" type="video/mp4">
@@ -1503,7 +1520,7 @@
                     <div class="svc-name">Day Use no Parque</div>
                     <div class="svc-desc">Prainha, piscina, quadras, bangalôs, redário e muito mais.</div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </section>
@@ -1520,7 +1537,7 @@
             <p class="section-sub" style="color:rgba(255,255,255,0.5);">Além das atividades, o Talula tem estrutura completa pra curtir o dia inteiro sem pressa.</p>
         </div>
         <div class="services-grid reveal" style="margin-top:3rem;">
-            <div class="svc-card">
+            <a class="svc-card" href="piscina.html">
                 <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Espa%C3%A7o/Piscina.mp4" type="video/mp4">
                 </video>
@@ -1529,8 +1546,8 @@
                     <div class="svc-name">Piscina</div>
                     <div class="svc-desc">Piscina particular à beira da represa, perfeita pra relaxar entre uma atividade e outra.</div>
                 </div>
-            </div>
-            <div class="svc-card">
+            </a>
+            <a class="svc-card" href="prainha.html">
                 <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Espa%C3%A7o/Praia.mp4" type="video/mp4">
                 </video>
@@ -1539,8 +1556,8 @@
                     <div class="svc-name">Prainha</div>
                     <div class="svc-desc">Areia branca à beira da represa, bangalôs, espreguiçadeiras e muito sol.</div>
                 </div>
-            </div>
-            <div class="svc-card">
+            </a>
+            <a class="svc-card" href="pet-friendly.html">
                 <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Espa%C3%A7o/Pet%20Friendly.mp4" type="video/mp4">
                 </video>
@@ -1549,7 +1566,7 @@
                     <div class="svc-name">Pet Friendly</div>
                     <div class="svc-desc">O Talula aceita pets. Traga seu companheiro de quatro patas pra curtir o dia também.</div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </section>
