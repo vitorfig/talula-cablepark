@@ -360,19 +360,26 @@
             );
         }
 
-        .svc-overlay::after {
-            content: 'Ver detalhes →';
-            display: block;
-            margin-top: 0.6rem;
-            font-size: 0.72rem;
+        .svc-btn {
+            display: inline-block;
+            margin-top: 0.7rem;
+            background: rgba(255,255,255,0.13);
+            color: white;
+            font-size: 0.7rem;
             font-weight: 700;
-            color: rgba(255,255,255,0);
             letter-spacing: 0.08em;
-            transition: color 0.3s;
+            text-transform: uppercase;
+            padding: 0.38rem 0.95rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.35);
+            backdrop-filter: blur(6px);
+            transition: background 0.25s, border-color 0.25s;
+            width: fit-content;
         }
 
-        .svc-card:hover .svc-overlay::after {
-            color: rgba(255,255,255,0.85);
+        .svc-card:hover .svc-btn {
+            background: var(--orange);
+            border-color: var(--orange);
         }
 
         .svc-price {
@@ -1466,6 +1473,7 @@
                     <span class="svc-price">a partir de R$ 80 · 15 min</span>
                     <div class="svc-name">Wakeboard</div>
                     <div class="svc-desc">Instrutor incluso. Agendar pelo app Talula Cable Park.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
             <a class="svc-card" href="floats.html">
@@ -1477,6 +1485,7 @@
                     <span class="svc-price">R$ 45 · 45 min</span>
                     <div class="svc-name">Floats</div>
                     <div class="svc-desc">Parque Inflável na represa. Das 10h às 16h, de hora em hora. Idade mínima 7 anos.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
             <a class="svc-card" href="natacao.html">
@@ -1488,6 +1497,7 @@
                     <span class="svc-price">incluso no day use</span>
                     <div class="svc-name">Natação em Águas Abertas</div>
                     <div class="svc-desc">Represa de nascente natural, água limpa e corrente.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
             <a class="svc-card" href="caiaque.html">
@@ -1498,6 +1508,7 @@
                     <span class="svc-price">R$ 40 · 30 min</span>
                     <div class="svc-name">Caiaque</div>
                     <div class="svc-desc">Colete incluso. Auxílio de instrutor para iniciantes.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
             <a class="svc-card" href="standup.html">
@@ -1508,6 +1519,7 @@
                     <span class="svc-price">R$ 40 · 30 min</span>
                     <div class="svc-name">Stand Up Paddle</div>
                     <div class="svc-desc">Prancha própria? Use de graça, só paga a entrada.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
             <a class="svc-card" href="dayuse.html">
@@ -1519,6 +1531,7 @@
                     <span class="svc-price">R$ 60 inteiro · R$ 30 meia</span>
                     <div class="svc-name">Day Use no Parque</div>
                     <div class="svc-desc">Prainha, piscina, quadras, bangalôs, redário e muito mais.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
         </div>
@@ -1545,6 +1558,7 @@
                     <span class="svc-price">incluso no day use</span>
                     <div class="svc-name">Piscina</div>
                     <div class="svc-desc">Piscina particular à beira da represa, perfeita pra relaxar entre uma atividade e outra.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
             <a class="svc-card" href="prainha.html">
@@ -1555,6 +1569,7 @@
                     <span class="svc-price">incluso no day use</span>
                     <div class="svc-name">Prainha</div>
                     <div class="svc-desc">Areia branca à beira da represa, bangalôs, espreguiçadeiras e muito sol.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
             <a class="svc-card" href="pet-friendly.html">
@@ -1565,6 +1580,7 @@
                     <span class="svc-price">pets bem-vindos</span>
                     <div class="svc-name">Pet Friendly</div>
                     <div class="svc-desc">O Talula aceita pets. Traga seu companheiro de quatro patas pra curtir o dia também.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
         </div>
