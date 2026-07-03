@@ -2455,26 +2455,35 @@
         if (fbOn)    fbOn.style.display    = muted ? 'none' : 'block';
     }
 
-    function dayuseEnableSound() {
-        if (!dayuseVid || !dayuseVid.muted) return;
-        dayuseVid.muted = false;
-        dayuseVid.play().catch(() => {});
-        _updateSoundUI(false);
-    }
-
     function toggleDayuseSound() {
         if (!dayuseVid) return;
-        dayuseVid.muted = !dayuseVid.muted;
-        _updateSoundUI(dayuseVid.muted);
+        if (dayuseVid.muted) {
+            dayuseVid.muted = false;
+            dayuseVid.play().catch(() => { dayuseVid.muted = true; _updateSoundUI(true); });
+            _updateSoundUI(false);
+        } else {
+            dayuseVid.muted = true;
+            _updateSoundUI(true);
+        }
     }
 
-    // Ativa som na primeira interação do usuário (scroll, clique ou toque)
+    // Scroll NÃO é gesto trusted para áudio nos browsers modernos.
+    // Apenas click/touchstart ativam som com garantia.
+    // Tenta a cada clique até conseguir — remove os listeners só após sucesso confirmado.
     function _onFirstInteraction() {
-        dayuseEnableSound();
+        if (!dayuseVid) return;
+        dayuseVid.muted = false;
+        dayuseVid.play().then(() => {
+            _updateSoundUI(false);
+            document.removeEventListener('click', _onFirstInteraction, true);
+            document.removeEventListener('touchstart', _onFirstInteraction, true);
+        }).catch(() => {
+            dayuseVid.muted = true; // falhou — reseta e tenta no próximo clique
+        });
     }
-    document.addEventListener('scroll', _onFirstInteraction, { capture: true, passive: true, once: true });
-    document.addEventListener('click',  _onFirstInteraction, { capture: true, once: true });
-    document.addEventListener('touchstart', _onFirstInteraction, { capture: true, passive: true, once: true });
+
+    document.addEventListener('click', _onFirstInteraction, true);
+    document.addEventListener('touchstart', _onFirstInteraction, { capture: true, passive: true });
 
     // Floats: play Floats1 then Floats2 then Floats1... infinitely
     const floatsVid = document.getElementById('floats-vid');
