@@ -2467,23 +2467,27 @@
         }
     }
 
-    // Scroll NÃO é gesto trusted para áudio nos browsers modernos.
-    // Apenas click/touchstart ativam som com garantia.
-    // Tenta a cada clique até conseguir — remove os listeners só após sucesso confirmado.
+    // Usa bubbling (sem capture) para que o onclick do botão de som rode ANTES
+    // deste listener — evita toggle duplo que re-mutava o vídeo.
     function _onFirstInteraction() {
         if (!dayuseVid) return;
+        if (!dayuseVid.muted) {
+            document.removeEventListener('click', _onFirstInteraction);
+            document.removeEventListener('touchstart', _onFirstInteraction);
+            return;
+        }
         dayuseVid.muted = false;
         dayuseVid.play().then(() => {
             _updateSoundUI(false);
-            document.removeEventListener('click', _onFirstInteraction, true);
-            document.removeEventListener('touchstart', _onFirstInteraction, true);
+            document.removeEventListener('click', _onFirstInteraction);
+            document.removeEventListener('touchstart', _onFirstInteraction);
         }).catch(() => {
-            dayuseVid.muted = true; // falhou — reseta e tenta no próximo clique
+            dayuseVid.muted = true;
         });
     }
 
-    document.addEventListener('click', _onFirstInteraction, true);
-    document.addEventListener('touchstart', _onFirstInteraction, { capture: true, passive: true });
+    document.addEventListener('click', _onFirstInteraction);
+    document.addEventListener('touchstart', _onFirstInteraction, { passive: true });
 
     // Floats: play Floats1 then Floats2 then Floats1... infinitely
     const floatsVid = document.getElementById('floats-vid');
@@ -2536,7 +2540,7 @@
 <button id="sound-float" onclick="toggleDayuseSound()" title="Ativar/desativar som" style="
     position:fixed; bottom:90px; right:24px; z-index:9998;
     width:50px; height:50px; border-radius:50%;
-    background:rgba(11,20,30,0.82); border:2px solid rgba(255,255,255,0.12); cursor:pointer;
+    background:#FF6300; border:none; cursor:pointer;
     display:flex; align-items:center; justify-content:center;
     box-shadow:0 4px 18px rgba(0,0,0,0.45);
     backdrop-filter:blur(10px);
@@ -2544,7 +2548,7 @@
 " onmouseover="this.style.transform='scale(1.1)'"
    onmouseout="this.style.transform='scale(1)'">
     <!-- ícone mutado (padrão) -->
-    <svg id="sound-float-muted" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg id="sound-float-muted" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
         <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
     </svg>
