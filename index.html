@@ -1358,7 +1358,7 @@
 
 <!-- ===== HERO ===== -->
 <section id="hero">
-    <video id="hero-video" autoplay muted loop playsinline preload="auto" fetchpriority="high" poster="Videos/hero-poster.jpg">
+    <video id="hero-video" autoplay muted loop playsinline preload="auto" fetchpriority="high">
         <source src="Videos/Video%201_hq.mp4" media="(min-width:769px)" type="video/mp4">
         <source src="Videos/Video%201.mp4" type="video/mp4">
     </video>
@@ -2380,6 +2380,12 @@
 
 <script>
     // Navbar scroll effect
+    // Poster só no mobile — desktop o video já carrega rápido
+    if (window.innerWidth < 769) {
+        const hv = document.getElementById('hero-video');
+        if (hv) hv.setAttribute('poster', 'Videos/hero-poster.jpg');
+    }
+
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         navbar.classList.toggle('scrolled', window.scrollY > 80);
