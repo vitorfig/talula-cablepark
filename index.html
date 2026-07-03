@@ -2441,50 +2441,40 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
 
-    // Day Use video: ativa som automaticamente ao rolar até a seção
-    // touchend = usuário levantou o dedo após scroll = gesto trusted no iOS
+    // ===== Som ambiente do site (vídeo dayuse) =====
     const dayuseVid = document.getElementById('dayuse-vid');
     const dayuseBtnIconMuted = document.getElementById('dayuse-icon-muted');
     const dayuseBtnIconOn    = document.getElementById('dayuse-icon-on');
-    let dayuseInView = false;
+
+    function _updateSoundUI(muted) {
+        const fbMuted = document.getElementById('sound-float-muted');
+        const fbOn    = document.getElementById('sound-float-on');
+        if (dayuseBtnIconMuted) dayuseBtnIconMuted.style.display = muted ? 'flex' : 'none';
+        if (dayuseBtnIconOn)    dayuseBtnIconOn.style.display    = muted ? 'none' : 'flex';
+        if (fbMuted) fbMuted.style.display = muted ? 'block' : 'none';
+        if (fbOn)    fbOn.style.display    = muted ? 'none' : 'block';
+    }
 
     function dayuseEnableSound() {
         if (!dayuseVid || !dayuseVid.muted) return;
         dayuseVid.muted = false;
         dayuseVid.play().catch(() => {});
-        if (dayuseBtnIconMuted) dayuseBtnIconMuted.style.display = 'none';
-        if (dayuseBtnIconOn)    dayuseBtnIconOn.style.display    = 'block';
+        _updateSoundUI(false);
     }
 
     function toggleDayuseSound() {
         if (!dayuseVid) return;
-        if (dayuseVid.muted) {
-            dayuseEnableSound();
-        } else {
-            dayuseVid.muted = true;
-            if (dayuseBtnIconMuted) dayuseBtnIconMuted.style.display = 'block';
-            if (dayuseBtnIconOn)    dayuseBtnIconOn.style.display    = 'none';
-        }
+        dayuseVid.muted = !dayuseVid.muted;
+        _updateSoundUI(dayuseVid.muted);
     }
 
-    const dayuseSection = document.getElementById('dayuse-video');
-    if (dayuseSection && dayuseVid) {
-        new IntersectionObserver((entries) => {
-            entries.forEach(({ isIntersecting }) => {
-                dayuseInView = isIntersecting;
-                if (!isIntersecting) {
-                    dayuseVid.muted = true;
-                    if (dayuseBtnIconMuted) dayuseBtnIconMuted.style.display = 'block';
-                    if (dayuseBtnIconOn)    dayuseBtnIconOn.style.display    = 'none';
-                }
-            });
-        }, { threshold: 0.4 }).observe(dayuseSection);
+    // Ativa som na primeira interação do usuário (scroll, clique ou toque)
+    function _onFirstInteraction() {
+        dayuseEnableSound();
     }
-
-    // Quando o usuário levanta o dedo (fim do scroll) e a seção está visível → ativa som
-    document.addEventListener('touchend', function() {
-        if (dayuseInView) dayuseEnableSound();
-    }, { passive: true });
+    document.addEventListener('scroll', _onFirstInteraction, { capture: true, passive: true, once: true });
+    document.addEventListener('click',  _onFirstInteraction, { capture: true, once: true });
+    document.addEventListener('touchstart', _onFirstInteraction, { capture: true, passive: true, once: true });
 
     // Floats: play Floats1 then Floats2 then Floats1... infinitely
     const floatsVid = document.getElementById('floats-vid');
@@ -2532,6 +2522,30 @@
         100% { transform: translateX(110vw); }
     }
 </style>
+
+<!-- Floating Sound toggle button -->
+<button id="sound-float" onclick="toggleDayuseSound()" title="Ativar/desativar som" style="
+    position:fixed; bottom:90px; right:24px; z-index:9998;
+    width:50px; height:50px; border-radius:50%;
+    background:rgba(11,20,30,0.82); border:2px solid rgba(255,255,255,0.12); cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 4px 18px rgba(0,0,0,0.45);
+    backdrop-filter:blur(10px);
+    transition:transform 0.2s, background 0.2s;
+" onmouseover="this.style.transform='scale(1.1)'"
+   onmouseout="this.style.transform='scale(1)'">
+    <!-- ícone mutado (padrão) -->
+    <svg id="sound-float-muted" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <!-- ícone com som (oculto) -->
+    <svg id="sound-float-on" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+</button>
 
 <!-- Floating WhatsApp button -->
 <a href="https://wa.me/5516997276197" target="_blank" id="wa-float" title="Fale pelo WhatsApp" style="
