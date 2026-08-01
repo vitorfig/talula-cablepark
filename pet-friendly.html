@@ -60,6 +60,20 @@
         .act-cta h2 { font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 0.75rem; }
         .act-cta p { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 2.5rem; }
         .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        /* FAQ */
+        #faq { background: var(--dark); padding: 5rem 0; color: white; }
+        #faq .section-title { color: white; }
+        .faq-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-top: 2rem; }
+        .faq-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; transition: border-color 0.25s; }
+        .faq-item.open { border-color: var(--teal); background: rgba(0,118,148,0.08); }
+        .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.4rem; cursor: pointer; font-weight: 600; font-size: 0.92rem; gap: 1rem; line-height: 1.4; user-select: none; transition: color 0.2s; }
+        .faq-q:hover { color: var(--orange); }
+        .faq-toggle { width: 26px; height: 26px; border-radius: 50%; background: rgba(0,118,148,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; font-weight: 700; color: var(--teal-light, #0096bb); transition: transform 0.3s, background 0.3s; line-height: 1; }
+        .faq-item.open .faq-toggle { background: var(--orange); color: white; transform: rotate(45deg); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-item.open .faq-a { max-height: 300px; }
+        .faq-a-inner { padding: 0 1.4rem 1.4rem; color: rgba(255,255,255,0.65); font-size: 0.88rem; line-height: 1.75; }
+        @media (max-width: 768px) { .faq-grid { grid-template-columns: 1fr; } }
         footer { background: #050d14; color: white; padding: 4.5rem 0 2rem; }
         .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
         .footer-logo-img { height: 64px; margin-bottom: 1.1rem; display: block; border-radius: 50%; }
@@ -193,6 +207,30 @@
     </div>
 </section>
 
+<!-- ===== FAQ ===== -->
+<section id="faq">
+    <div class="container">
+        <div style="text-align:center; margin-bottom: 1rem;">
+            <span class="section-tag">Dúvidas Frequentes</span>
+            <h2 class="section-title">Ficou alguma dúvida?</h2>
+        </div>
+        <div class="faq-grid" id="faqList">
+
+            <div class="faq-item">
+                <div class="faq-q">
+                    <span>Posso levar meu pet?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-a">
+                    <div class="faq-a-inner">Sim, somos pet friendly! Taxa de R$ 15 por animal. Pets podem ficar na grama e na areia. São proibidos em banheiros, dentro da piscina e próximos ao parque inflável. Uso de guia obrigatório no restaurante/salão e para pets agitados. Vacinação em dia é obrigatória.</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
 <!-- ===== FOOTER ===== -->
 <footer>
     <div class="container">
@@ -271,6 +309,14 @@
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+    document.querySelectorAll('.faq-q').forEach(q => {
+        q.addEventListener('click', () => {
+            const item = q.parentElement;
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        });
+    });
 </script>
 
 <!-- Floating WhatsApp button -->

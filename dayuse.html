@@ -72,6 +72,20 @@
         .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(0,0,0,0.2); }
         .btn-ghost-white { display: inline-block; border: 2px solid rgba(255,255,255,0.7); color: white; padding: 0.9rem 2.2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
         .btn-ghost-white:hover { background: rgba(255,255,255,0.12); }
+        /* FAQ */
+        #faq { background: var(--dark); padding: 5rem 0; color: white; }
+        #faq .section-title { color: white; }
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 2rem; }
+        .faq-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; transition: border-color 0.25s; }
+        .faq-item.open { border-color: var(--teal); background: rgba(0,118,148,0.08); }
+        .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.4rem; cursor: pointer; font-weight: 600; font-size: 0.92rem; gap: 1rem; line-height: 1.4; user-select: none; transition: color 0.2s; }
+        .faq-q:hover { color: var(--orange); }
+        .faq-toggle { width: 26px; height: 26px; border-radius: 50%; background: rgba(0,118,148,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; font-weight: 700; color: var(--teal-light, #0096bb); transition: transform 0.3s, background 0.3s; line-height: 1; }
+        .faq-item.open .faq-toggle { background: var(--orange); color: white; transform: rotate(45deg); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-item.open .faq-a { max-height: 300px; }
+        .faq-a-inner { padding: 0 1.4rem 1.4rem; color: rgba(255,255,255,0.65); font-size: 0.88rem; line-height: 1.75; }
+        @media (max-width: 768px) { .faq-grid { grid-template-columns: 1fr; } }
         footer { background: #050d14; color: white; padding: 4.5rem 0 2rem; }
         .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
         .footer-logo-img { height: 64px; margin-bottom: 1.1rem; display: block; border-radius: 50%; }
@@ -209,6 +223,70 @@
     </div>
 </section>
 
+<!-- ===== FAQ ===== -->
+<section id="faq">
+    <div class="container">
+        <div style="text-align:center; margin-bottom: 1rem;">
+            <span class="section-tag">Dúvidas Frequentes</span>
+            <h2 class="section-title">Ficou alguma dúvida?</h2>
+        </div>
+        <div class="faq-grid" id="faqList">
+
+            <div class="faq-item">
+                <div class="faq-q">
+                    <span>O que está incluso na entrada do Day Use?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-a">
+                    <div class="faq-a-inner">Prainha particular, piscina, bangalôs, espreguiçadeiras, quadras de areia (beach tennis, vôlei e futevôlei), slackline, futsinuca, cornhole, dardos, bets, natação em águas abertas, acesso ao restaurante, redário e vestiários. Tudo incluso nos R$ 60. Fora isso: wakeboard, caiaque/SUP, floats e consumo no restaurante são cobrados à parte.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">
+                    <span>Preciso agendar antes de ir ao parque?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-a">
+                    <div class="faq-a-inner">Apenas o wakeboard exige agendamento prévio pelo aplicativo Talula Cable Park. Para todas as outras atividades (floats, caiaque, SUP, restaurante, day use) é só chegar e acertar no balcão.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">
+                    <span>Tem desconto para crianças, idosos ou estudantes?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-a">
+                    <div class="faq-a-inner">Sim! A meia-entrada é R$ 30 para: crianças até 9 anos, idosos com 60 anos ou mais, estudantes e pessoas com deficiência (PCD). O aniversariante do dia tem entrada gratuita.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">
+                    <span>Posso trazer comida e bebida de fora?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-a">
+                    <div class="faq-a-inner">Não é permitida a entrada com alimentos ou bebidas externas. O parque possui restaurante completo com pratos executivos, porções, lanches, açaí, bebidas alcoólicas e não alcoólicas. Também é proibido trazer caixa de som particular.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">
+                    <span>Quero organizar um evento ou aniversário. Como faço?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-a">
+                    <div class="faq-a-inner">Entre em contato direto com o Diego pelo (16) 99727-6197 para orçamentos de eventos fechados, festas e locações. O aniversariante do dia tem entrada cortesia e pode trazer o bolo e os docinhos da festa gratuitamente.</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
 <!-- ===== FOOTER ===== -->
 <footer>
     <div class="container">
@@ -287,6 +365,14 @@
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+    document.querySelectorAll('.faq-q').forEach(q => {
+        q.addEventListener('click', () => {
+            const item = q.parentElement;
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        });
+    });
 </script>
 
 <!-- Floating WhatsApp button -->
