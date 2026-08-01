@@ -410,45 +410,6 @@
             line-height: 1.5;
         }
 
-        /* ===================== VIDEO WALL ===================== */
-        #video-wall {
-            background: var(--dark2);
-            padding: 5rem 0 0;
-        }
-
-        .vwall-header {
-            text-align: center;
-            padding: 0 2rem 3rem;
-            color: white;
-        }
-
-        .vwall-header .section-title { color: white; }
-
-        .vwall-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3px;
-        }
-
-        .vwall-item {
-            aspect-ratio: 9/16;
-            overflow: hidden;
-            position: relative;
-            background: #0a1520;
-        }
-
-        .vwall-item video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .vwall-item:hover video {
-            transform: scale(1.04);
-        }
-
         /* ===================== DAY USE VIDEO ===================== */
         #dayuse-video {
             position: relative;
@@ -1087,7 +1048,6 @@
             .nav-links.open a { font-size: 1.2rem; }
 
             .services-grid { grid-template-columns: 1fr 1fr; }
-            .vwall-grid { grid-template-columns: repeat(2, 1fr); }
             .dayuse-grid { grid-template-columns: repeat(3, 1fr); }
             .faq-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
@@ -1098,7 +1058,6 @@
 
         @media (max-width: 480px) {
             .services-grid { grid-template-columns: 1fr; }
-            .vwall-grid { grid-template-columns: 1fr 1fr; }
             .dayuse-grid { grid-template-columns: repeat(2, 1fr); }
             .mapa-info-grid { grid-template-columns: 1fr; }
             .parceiros-logo-item { padding: 0 1.5rem !important; min-width: 160px !important; }
@@ -1300,28 +1259,6 @@
         .parceiros-logo-item { min-width: 280px; }
 
 
-        /* ===================== EQUIPE ===================== */
-        .equipe-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-        .equipe-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 1.1rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-        }
-        @media (max-width: 900px) {
-            .equipe-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-            .equipe-photo { width: 150px; height: 150px; }
-        }
-        @media (max-width: 480px) {
-            .equipe-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .equipe-photo { width: 140px; height: 140px; }
-        }
         /* ===================== REVEAL ANIMATION ===================== */
         .reveal {
             opacity: 0;
@@ -1348,6 +1285,7 @@
         <li><a href="#precos">Preços</a></li>
         <li><a href="#mapa">Localização</a></li>
         <li><a href="#faq">FAQ</a></li>
+        <li><a href="equipe.html">Equipe</a></li>
         <li><a href="https://wa.me/5516997276197" target="_blank" class="nav-cta">Agendar Agora</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -1426,6 +1364,13 @@
                     <div class="dh-text">
                         <strong>Natação em Águas Abertas</strong>
                         <span>Represa de nascente natural, água limpa e corrente</span>
+                    </div>
+                </div>
+                <div class="dayuse-highlight-row">
+                    <div class="dh-icon">🏝️</div>
+                    <div class="dh-text">
+                        <strong>Floats</strong>
+                        <span>Pista de obstáculos infláveis em cima da água</span>
                     </div>
                 </div>
                 <div class="dayuse-highlight-row">
@@ -2229,83 +2174,6 @@
 </section>
 
 
-<!-- ===== VIDEO WALL ===== -->
-<section id="video-wall">
-    <div class="vwall-header reveal">
-        <span class="section-tag teal">Em Ação</span>
-        <h2 class="section-title" style="color:white;">Sinta a adrenalina</h2>
-    </div>
-    <div class="vwall-grid">
-        <div class="vwall-item">
-            <video autoplay muted loop playsinline preload="metadata">
-                <source src="Videos/Video%201_hq.mp4" media="(min-width:769px)" type="video/mp4">
-                <source src="Videos/Video%201.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="vwall-item">
-            <video autoplay muted loop playsinline preload="metadata">
-                <source src="Videos/Video%202_hq.mp4" media="(min-width:769px)" type="video/mp4">
-                <source src="Videos/Video%202.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="vwall-item">
-            <video autoplay muted loop playsinline preload="metadata">
-                <source src="Videos/Video%203_hq.mp4" media="(min-width:769px)" type="video/mp4">
-                <source src="Videos/Video%203.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="vwall-item">
-            <video autoplay muted loop playsinline preload="metadata">
-                <source src="Videos/Video%204_hq.mp4" media="(min-width:769px)" type="video/mp4">
-                <source src="Videos/Video%204.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-</section>
-
-
-<!-- ===== EQUIPE ===== -->
-<section id="equipe" style="background:#0b141e; padding:5rem 0 5.5rem;">
-    <div class="container">
-        <div style="text-align:center; margin-bottom:3.5rem;" class="reveal">
-            <span class="section-tag teal">Quem faz acontecer</span>
-            <h2 class="section-title" style="color:#fff;">De Wakeboarders<br>para Wakeboarders</h2>
-            <p class="section-sub" style="color:rgba(255,255,255,0.5); max-width:520px; margin:0 auto;">Os sócios do Talula vivem o esporte na pele. A paixão pelo wake é o que move tudo isso.</p>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:2rem;" class="reveal equipe-grid">
-            <div style="text-align:center;">
-                <div style="width:180px; height:180px; border-radius:50%; overflow:hidden; margin:0 auto 1.1rem; box-shadow:0 8px 30px rgba(0,0,0,0.4);">
-                    <img src="Videos/Equipe/Lara%20Marchesi.png" alt="Lara Marchesi" style="width:100%; height:100%; object-fit:cover; object-position:top;">
-                </div>
-                <div style="font-size:1.05rem; font-weight:800; color:#fff; margin-bottom:0.5rem;">Lara Marchesi</div>
-                <div style="font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.55; max-width:200px; margin:0 auto;">Wakeboarder, idealizadora do Wakefest, Zuno Cable Park e sócia do Talula Cable Park e SKZ Sistemas de Wake</div>
-            </div>
-            <div style="text-align:center;">
-                <div style="width:180px; height:180px; border-radius:50%; overflow:hidden; margin:0 auto 1.1rem; box-shadow:0 8px 30px rgba(0,0,0,0.4);">
-                    <img src="Videos/Equipe/Pedro%20Zucki.png" alt="Pedro Zucki" style="width:100%; height:100%; object-fit:cover; object-position:top;">
-                </div>
-                <div style="font-size:1.05rem; font-weight:800; color:#fff; margin-bottom:0.5rem;">Pedro Zucki</div>
-                <div style="font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.55; max-width:200px; margin:0 auto;">Wakeboarder, idealizador do Wakefest, Zuno Cable Park e sócio do Talula Cable Park e SKZ Sistemas de Wake</div>
-            </div>
-            <div style="text-align:center;">
-                <div style="width:180px; height:180px; border-radius:50%; overflow:hidden; margin:0 auto 1.1rem; box-shadow:0 8px 30px rgba(0,0,0,0.4);">
-                    <img src="Videos/Equipe/Diego%20Bernal.png" alt="Diego Bernal" style="width:100%; height:100%; object-fit:cover; object-position:top;">
-                </div>
-                <div style="font-size:1.05rem; font-weight:800; color:#fff; margin-bottom:0.5rem;">Diego Bernal</div>
-                <div style="font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.55; max-width:200px; margin:0 auto;">Wakeboarder, idealizador do Wakefest, Zuno Cable Park e sócio do Talula Cable Park e SKZ Sistemas de Wake</div>
-            </div>
-            <div style="text-align:center;">
-                <div style="width:180px; height:180px; border-radius:50%; overflow:hidden; margin:0 auto 1.1rem; box-shadow:0 8px 30px rgba(0,0,0,0.4);">
-                    <img src="Videos/Equipe/Bia%20Nodari.jpg" alt="Bia Nodari" style="width:100%; height:100%; object-fit:cover; object-position:top;">
-                </div>
-                <div style="font-size:1.05rem; font-weight:800; color:#fff; margin-bottom:0.5rem;">Bia Nodari</div>
-                <div style="font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.55; max-width:200px; margin:0 auto;">Wakeboarder, idealizadora do Wakefest, Zuno Cable Park e sócia do Talula Cable Park e SKZ Sistemas de Wake</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
 <!-- ===== FOOTER ===== -->
 <footer>
     <div class="container">
@@ -2331,6 +2199,7 @@
                     <li><a href="#precos">Tabela de Preços</a></li>
                     <li><a href="#mapa">Como Chegar</a></li>
                     <li><a href="#faq">Perguntas Frequentes</a></li>
+                    <li><a href="equipe.html">Equipe</a></li>
                 </ul>
             </div>
 
