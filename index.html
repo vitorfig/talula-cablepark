@@ -312,6 +312,13 @@
             gap: 1rem;
         }
 
+        #servicos .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #servicos .services-grid .svc-card { flex: 0 1 calc((100% - 2rem) / 3); }
+
         .svc-card {
             position: relative;
             border-radius: 14px;
@@ -1048,6 +1055,7 @@
             .nav-links.open a { font-size: 1.2rem; }
 
             .services-grid { grid-template-columns: 1fr 1fr; }
+            #servicos .services-grid .svc-card { flex: 0 1 calc((100% - 1rem) / 2); }
             .dayuse-grid { grid-template-columns: repeat(3, 1fr); }
             .faq-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
@@ -1058,6 +1066,7 @@
 
         @media (max-width: 480px) {
             .services-grid { grid-template-columns: 1fr; }
+            #servicos .services-grid .svc-card { flex: 1 1 100%; }
             .dayuse-grid { grid-template-columns: repeat(2, 1fr); }
             .mapa-info-grid { grid-template-columns: 1fr; }
             .parceiros-logo-item { padding: 0 1.5rem !important; min-width: 160px !important; }
@@ -1362,13 +1371,6 @@
                         <span>Pista de obstáculos infláveis em cima da água</span>
                     </div>
                 </div>
-                <div class="dayuse-highlight-row">
-                    <div class="dh-icon">🍽️</div>
-                    <div class="dh-text">
-                        <strong>Restaurante completo</strong>
-                        <span>Pratos, porções, açaí, bebidas · Das 10h às 17h</span>
-                    </div>
-                </div>
             </div>
 
             <div class="dayuse-cta-row">
@@ -1387,15 +1389,144 @@
 </section>
 
 
+<!-- ===== ATIVIDADES GRATUITAS (INCLUSAS NO DAY USE) ===== -->
+<section id="day-use">
+    <div class="container">
+        <div class="dayuse-header reveal">
+            <div>
+                <span class="section-tag">Day Use</span>
+                <h2 class="section-title">Atividades gratuitas<br>inclusas no day use</h2>
+                <p class="section-sub" style="color:#666;">Tudo isso já está na sua entrada, sem custo extra.</p>
+            </div>
+            <div class="dayuse-price-card">
+                <div class="pl">Entrada Inteira</div>
+                <div class="pv">R$ 60</div>
+                <div class="pm">
+                    Meia-entrada: <strong>R$ 30</strong><br>
+                    <small>Crianças até 9 anos, Idosos 60+,<br>Estudantes e PCD</small>
+                </div>
+            </div>
+        </div>
+        <div class="services-grid reveal">
+            <a class="svc-card" href="dayuse.html">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="Videos/Atividades/Quadra%20de%20areia.mp4" type="video/mp4">
+                </video>
+                <div class="svc-overlay">
+                    <span class="svc-price">incluso no day use</span>
+                    <div class="svc-name">Esportes de Areia</div>
+                    <div class="svc-desc">Beach tennis, vôlei e futevôlei. Equipamentos inclusos.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
+                </div>
+            </a>
+            <a class="svc-card" href="dayuse.html">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="Videos/Espa%C3%A7o/Futsinuca.mp4" type="video/mp4">
+                </video>
+                <div class="svc-overlay">
+                    <span class="svc-price">incluso no day use</span>
+                    <div class="svc-name">Futsinuca</div>
+                    <div class="svc-desc">Uma mistura de futebol e sinuca, direto na quadra de areia.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
+                </div>
+            </a>
+            <a class="svc-card" href="dayuse.html">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="Videos/Espa%C3%A7o/Futemesa.mp4" type="video/mp4">
+                </video>
+                <div class="svc-overlay">
+                    <span class="svc-price">incluso no day use</span>
+                    <div class="svc-name">Futemesa</div>
+                    <div class="svc-desc">Pebolim pra jogar com a família e os amigos.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
+                </div>
+            </a>
+            <a class="svc-card" href="dayuse.html">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="Videos/Espa%C3%A7o/Slackline.mp4" type="video/mp4">
+                </video>
+                <div class="svc-overlay">
+                    <span class="svc-price">incluso no day use</span>
+                    <div class="svc-name">Slackline</div>
+                    <div class="svc-desc">Corda bamba pra testar o equilíbrio.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
+                </div>
+            </a>
+            <a class="svc-card" href="prainha.html">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="Videos/Espa%C3%A7o/Prainha%20e%20Bangalos.mp4" type="video/mp4">
+                </video>
+                <div class="svc-overlay">
+                    <span class="svc-price">incluso no day use</span>
+                    <div class="svc-name">Prainha</div>
+                    <div class="svc-desc">Areia branca à beira da represa, bangalôs, espreguiçadeiras e muito sol.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
+                </div>
+            </a>
+            <a class="svc-card" href="dayuse.html">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="Videos/Espa%C3%A7o/Redario.mp4" type="video/mp4">
+                </video>
+                <div class="svc-overlay">
+                    <span class="svc-price">incluso no day use</span>
+                    <div class="svc-name">Redário</div>
+                    <div class="svc-desc">Redes à sombra pra relaxar entre uma atividade e outra.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
+                </div>
+            </a>
+            <a class="svc-card" href="piscina.html">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="Videos/Espa%C3%A7o/Piscina.mp4" type="video/mp4">
+                </video>
+                <div class="svc-overlay">
+                    <span class="svc-price">incluso no day use</span>
+                    <div class="svc-name">Piscina</div>
+                    <div class="svc-desc">Piscina particular à beira da represa, perfeita pra relaxar entre uma atividade e outra.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
+                </div>
+            </a>
+            <a class="svc-card" href="dayuse.html">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="Videos/Espa%C3%A7o/Sinuca.mp4" type="video/mp4">
+                </video>
+                <div class="svc-overlay">
+                    <span class="svc-price">incluso no day use</span>
+                    <div class="svc-name">Sinuca</div>
+                    <div class="svc-desc">Mesa de sinuca disponível o dia todo.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
+                </div>
+            </a>
+            <a class="svc-card" href="natacao.html">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="Videos/Atividades/Natacao%20em%20aguas%20abertas%201_hq.mp4" media="(min-width:769px)" type="video/mp4">
+                    <source src="Videos/Atividades/Natacao%20em%20aguas%20abertas%201.mp4" type="video/mp4">
+                </video>
+                <div class="svc-overlay">
+                    <span class="svc-price">incluso no day use</span>
+                    <div class="svc-name">Natação em Águas Abertas</div>
+                    <div class="svc-desc">Represa de nascente natural, água limpa e corrente.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="not-included-bar reveal">
+            <span>⚠️</span>
+            <span><strong>Não inclusos na entrada:</strong> Wakeboard, Caiaque/SUP, Parque Inflável (Floats) e consumos no restaurante.</span>
+        </div>
+    </div>
+</section>
+
+
 <!-- ===== SERVIÇOS ===== -->
 <section id="servicos">
     <div class="container">
         <div class="services-intro reveal">
             <div>
-                <span class="section-tag">O que oferecemos</span>
-                <h2 class="section-title">Atividades para<br>todos os perfis</h2>
+                <span class="section-tag">Vá além</span>
+                <h2 class="section-title">Atividades adicionais</h2>
             </div>
-            <p class="section-sub" style="color:rgba(255,255,255,0.5);">Do iniciante ao experiente, do radical ao relaxado: tem atividade certa pra você.</p>
+            <p class="section-sub" style="color:rgba(255,255,255,0.5);">Pra quem quer ir além do que já está incluso na entrada.</p>
         </div>
         <div class="services-grid reveal">
             <a class="svc-card" href="wakeboard.html">
@@ -1422,18 +1553,6 @@
                     <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
-            <a class="svc-card" href="natacao.html">
-                <video autoplay muted loop playsinline preload="metadata">
-                    <source src="Videos/Atividades/Natacao%20em%20aguas%20abertas%201_hq.mp4" media="(min-width:769px)" type="video/mp4">
-                    <source src="Videos/Atividades/Natacao%20em%20aguas%20abertas%201.mp4" type="video/mp4">
-                </video>
-                <div class="svc-overlay">
-                    <span class="svc-price">incluso no day use</span>
-                    <div class="svc-name">Natação em Águas Abertas</div>
-                    <div class="svc-desc">Represa de nascente natural, água limpa e corrente.</div>
-                    <span class="svc-btn">Conhecer mais →</span>
-                </div>
-            </a>
             <a class="svc-card" href="caiaque.html">
                 <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Atividades/caiaque.mp4" type="video/mp4">
@@ -1456,145 +1575,17 @@
                     <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
-            <a class="svc-card" href="dayuse.html">
-                <video autoplay muted loop playsinline preload="metadata">
-                    <source src="Videos/Video%207_hq.mp4" media="(min-width:769px)" type="video/mp4">
-                    <source src="Videos/Video%207.mp4" type="video/mp4">
-                </video>
-                <div class="svc-overlay">
-                    <span class="svc-price">R$ 60 inteiro · R$ 30 meia</span>
-                    <div class="svc-name">Day Use no Parque</div>
-                    <div class="svc-desc">Prainha, piscina, quadras, bangalôs, redário e muito mais.</div>
-                    <span class="svc-btn">Conhecer mais →</span>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
-
-
-<!-- ===== ESPAÇO ===== -->
-<section id="espaco" style="background:#0b141e; padding:5rem 0;">
-    <div class="container">
-        <div class="services-intro reveal">
-            <div>
-                <span class="section-tag">O Espaço</span>
-                <h2 class="section-title" style="color:#fff;">Um lugar feito pra você ficar</h2>
-            </div>
-            <p class="section-sub" style="color:rgba(255,255,255,0.5);">Além das atividades, o Talula tem estrutura completa pra curtir o dia inteiro sem pressa.</p>
-        </div>
-        <div class="services-grid reveal" style="margin-top:3rem;">
-            <a class="svc-card" href="piscina.html">
-                <video autoplay muted loop playsinline preload="metadata">
-                    <source src="Videos/Espa%C3%A7o/Piscina.mp4" type="video/mp4">
-                </video>
-                <div class="svc-overlay">
-                    <span class="svc-price">incluso no day use</span>
-                    <div class="svc-name">Piscina</div>
-                    <div class="svc-desc">Piscina particular à beira da represa, perfeita pra relaxar entre uma atividade e outra.</div>
-                    <span class="svc-btn">Conhecer mais →</span>
-                </div>
-            </a>
-            <a class="svc-card" href="prainha.html">
-                <video autoplay muted loop playsinline preload="metadata">
-                    <source src="Videos/Espa%C3%A7o/Praia.mp4" type="video/mp4">
-                </video>
-                <div class="svc-overlay">
-                    <span class="svc-price">incluso no day use</span>
-                    <div class="svc-name">Prainha</div>
-                    <div class="svc-desc">Areia branca à beira da represa, bangalôs, espreguiçadeiras e muito sol.</div>
-                    <span class="svc-btn">Conhecer mais →</span>
-                </div>
-            </a>
             <a class="svc-card" href="pet-friendly.html">
                 <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Espa%C3%A7o/Pet%20Friendly.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
-                    <span class="svc-price">pets bem-vindos</span>
+                    <span class="svc-price">R$ 15 por cachorro</span>
                     <div class="svc-name">Pet Friendly</div>
                     <div class="svc-desc">O Talula aceita pets. Traga seu companheiro de quatro patas pra curtir o dia também.</div>
                     <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
-        </div>
-    </div>
-</section>
-
-
-<!-- ===== DAY USE ===== -->
-<section id="day-use">
-    <div class="container">
-        <div class="dayuse-header reveal">
-            <div>
-                <span class="section-tag">Day Use</span>
-                <h2 class="section-title">Tudo isso na<br>sua entrada</h2>
-                <p class="section-sub" style="color:#666;">Pague uma vez e passe o dia inteiro curtindo uma estrutura completa às margens da represa.</p>
-            </div>
-            <div class="dayuse-price-card">
-                <div class="pl">Entrada Inteira</div>
-                <div class="pv">R$ 60</div>
-                <div class="pm">
-                    Meia-entrada: <strong>R$ 30</strong><br>
-                    <small>Crianças até 9 anos, Idosos 60+,<br>Estudantes e PCD</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="dayuse-grid reveal">
-            <div class="dayuse-item">
-                <span class="dayuse-icon">🏖️</span>
-                <div class="dayuse-name">Prainha Particular</div>
-            </div>
-            <div class="dayuse-item">
-                <span class="dayuse-icon">🏊</span>
-                <div class="dayuse-name">Piscina</div>
-            </div>
-            <div class="dayuse-item">
-                <span class="dayuse-icon">🛖</span>
-                <div class="dayuse-name">Bangalôs</div>
-                <div class="dayuse-note">com espreguiçadeiras</div>
-            </div>
-            <div class="dayuse-item">
-                <span class="dayuse-icon">🎾</span>
-                <div class="dayuse-name">Beach Tennis</div>
-                <div class="dayuse-note">equipamentos inclusos</div>
-            </div>
-            <div class="dayuse-item">
-                <span class="dayuse-icon">🏐</span>
-                <div class="dayuse-name">Vôlei & Futevôlei</div>
-                <div class="dayuse-note">quadras de areia</div>
-            </div>
-            <div class="dayuse-item">
-                <span class="dayuse-icon">🌊</span>
-                <div class="dayuse-name">Natação</div>
-                <div class="dayuse-note">águas abertas, livre</div>
-            </div>
-            <div class="dayuse-item">
-                <span class="dayuse-icon">🎯</span>
-                <div class="dayuse-name">Slackline</div>
-                <div class="dayuse-note">corda bamba</div>
-            </div>
-            <div class="dayuse-item">
-                <span class="dayuse-icon">🎮</span>
-                <div class="dayuse-name">Jogos</div>
-                <div class="dayuse-note">Futsinuca, Cornhole, Dardos, Bets</div>
-            </div>
-            <div class="dayuse-item">
-                <span class="dayuse-icon">🍽️</span>
-                <div class="dayuse-name">Restaurante</div>
-                <div class="dayuse-note">acesso incluso (consumo à parte)</div>
-            </div>
-            <div class="dayuse-item">
-                <span class="dayuse-icon">🚿</span>
-                <div class="dayuse-name">Vestiários & Redário</div>
-                <div class="dayuse-note">estrutura completa</div>
-            </div>
-        </div>
-
-        <div class="not-included-bar reveal">
-            <span>⚠️</span>
-            <span><strong>Não inclusos na entrada:</strong> Wakeboard, Caiaque/SUP, Parque Inflável (Floats) e consumos no restaurante.</span>
         </div>
     </div>
 </section>
