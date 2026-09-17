@@ -768,6 +768,13 @@
 
         .pay-badge .icon { font-size: 1rem; }
 
+        .pay-badge.no {
+            background: rgba(255,59,48,0.08);
+            border-color: rgba(255,59,48,0.22);
+            color: rgba(255,255,255,0.45);
+        }
+        .pay-badge.no .icon { font-size: 0.85rem; }
+
         /* ===================== MAPA ===================== */
         #mapa {
             background: var(--cream);
@@ -1583,7 +1590,7 @@
                     <source src="Videos/Espa%C3%A7o/Sinuca.mp4" type="video/mp4">
                 </video>
                 <div class="svc-overlay">
-                    <span class="svc-price">R$ 50 / h</span>
+                    <span class="svc-price">R$50 por Hora</span>
                     <div class="svc-name">Sinuca</div>
                     <div class="svc-desc">Mesa de sinuca disponível para jogar por hora.</div>
                     <span class="svc-btn">Conhecer mais →</span>
@@ -1976,7 +1983,11 @@
             <span class="pay-badge"><span class="icon">📱</span> PIX</span>
             <span class="pay-badge"><span class="icon">💵</span> Dinheiro</span>
         </div>
-        <p class="reveal" style="text-align:center; margin-top:0.75rem; font-size:0.75rem; color:rgba(255,255,255,0.35);">Não aceitamos vale-refeição nem vale-alimentação.</p>
+        <div class="payment-bar reveal" style="margin-top:0.6rem;">
+            <span style="font-size:0.78rem; color:rgba(255,255,255,0.4); margin-right:0.5rem;">Não aceitamos:</span>
+            <span class="pay-badge no"><span class="icon">❌</span> Vale-Refeição</span>
+            <span class="pay-badge no"><span class="icon">❌</span> Vale-Alimentação</span>
+        </div>
     </div>
 </section>
 
