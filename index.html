@@ -267,6 +267,13 @@
             background: var(--teal);
         }
 
+        .section-tag-lg {
+            font-size: 0.95rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            padding: 0.5rem 1.5rem;
+        }
+
         .section-title {
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 900;
@@ -1338,7 +1345,7 @@
             </video>
         </div>
         <div class="dayuse-text-side">
-            <span class="section-tag">Day Use</span>
+            <span class="section-tag section-tag-lg">Day Use</span>
             <h2 class="section-title">Passe o dia<br>mais incrível<br><span style="color:var(--orange);">da sua vida</span></h2>
             <p class="section-sub">Uma estrutura completa à beira da represa para você curtir o dia inteiro com quem você ama.</p>
 
@@ -1364,13 +1371,6 @@
                         <span>Represa de nascente natural, água limpa e corrente</span>
                     </div>
                 </div>
-                <div class="dayuse-highlight-row">
-                    <div class="dh-icon">🏝️</div>
-                    <div class="dh-text">
-                        <strong>Floats</strong>
-                        <span>Pista de obstáculos infláveis em cima da água</span>
-                    </div>
-                </div>
             </div>
 
             <div class="dayuse-cta-row">
@@ -1394,8 +1394,8 @@
     <div class="container">
         <div class="dayuse-header reveal">
             <div>
-                <span class="section-tag">Day Use</span>
-                <h2 class="section-title">Atividades gratuitas<br>inclusas no day use</h2>
+                <span class="section-tag section-tag-lg">Day Use</span>
+                <h2 class="section-title">Atividades<br>inclusas no day use</h2>
                 <p class="section-sub" style="color:#666;">Tudo isso já está na sua entrada, sem custo extra.</p>
             </div>
             <div style="display:flex; gap:1rem; flex-wrap:wrap;">
@@ -1488,17 +1488,6 @@
                     <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
-            <a class="svc-card" href="dayuse.html">
-                <video autoplay muted loop playsinline preload="metadata">
-                    <source src="Videos/Espa%C3%A7o/Sinuca.mp4" type="video/mp4">
-                </video>
-                <div class="svc-overlay">
-                    <span class="svc-price">incluso no day use</span>
-                    <div class="svc-name">Sinuca</div>
-                    <div class="svc-desc">Mesa de sinuca disponível o dia todo.</div>
-                    <span class="svc-btn">Conhecer mais →</span>
-                </div>
-            </a>
             <a class="svc-card" href="natacao.html">
                 <video autoplay muted loop playsinline preload="metadata">
                     <source src="Videos/Atividades/Natacao%20em%20aguas%20abertas%201_hq.mp4" media="(min-width:769px)" type="video/mp4">
@@ -1515,7 +1504,7 @@
 
         <div class="not-included-bar reveal">
             <span>⚠️</span>
-            <span><strong>Não inclusos na entrada:</strong> Caiaque/SUP, Parque Inflável (Floats) e consumos no restaurante. O Wakeboard já tem a entrada inclusa no valor da sessão — quem agenda o wake não paga o day use separado.</span>
+            <span><strong>Não inclusos na entrada:</strong> Caiaque/SUP, Parque Inflável (Floats), Sinuca e consumos no restaurante. O Wakeboard já tem a entrada inclusa no valor da sessão — quem agenda o wake não paga o day use separado.</span>
         </div>
     </div>
 </section>
@@ -1589,6 +1578,17 @@
                     <span class="svc-btn">Conhecer mais →</span>
                 </div>
             </a>
+            <a class="svc-card" href="dayuse.html">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="Videos/Espa%C3%A7o/Sinuca.mp4" type="video/mp4">
+                </video>
+                <div class="svc-overlay">
+                    <span class="svc-price">R$ 50 / h</span>
+                    <div class="svc-name">Sinuca</div>
+                    <div class="svc-desc">Mesa de sinuca disponível para jogar por hora.</div>
+                    <span class="svc-btn">Conhecer mais →</span>
+                </div>
+            </a>
         </div>
     </div>
 </section>
@@ -1597,7 +1597,7 @@
 <!-- ===== RAIAS ===== -->
 <section id="raias">
     <div class="container raias-header reveal">
-        <span class="section-tag teal">Cable Park</span>
+        <span class="section-tag teal section-tag-lg">Cable Park</span>
         <h2 class="section-title">As raias do Talula</h2>
         <p class="section-sub">Vista de cima: 3 raias paralelas no lago, cada uma com obstáculos para um nível diferente.</p>
     </div>
@@ -1779,9 +1779,9 @@
         <!-- Raia 3 — Iniciante -->
         <div class="raia-col raia-ini">
             <div class="raia-info">
-                <span class="raia-lv-tag ini">Raia 3 · Iniciante</span>
+                <span class="raia-lv-tag ini">Iniciante</span>
                 <h3 class="raia-heading">Para quem está começando</h3>
-                <p class="raia-p">Velocidade de cabo mais suave, sem obstáculos e instrutores ao lado o tempo todo. Sem idade mínima, só precisa saber nadar.</p>
+                <p class="raia-p">Para aprender a ficar de pé, postura e equilíbrio, fazer suas primeiras curvas e manobras. Nela você terá seus primeiros desafios e irá aprender a passar seu primeiro obstáculo.</p>
                 <div class="obs-chips">
                     <span class="obs-chip">🐢 Cabo suave</span>
                     <span class="obs-chip">👨‍🏫 Instrutor incluso</span>
@@ -1792,9 +1792,9 @@
         <!-- Raia 2 — Intermediário -->
         <div class="raia-col" style="background:#0d1000;">
             <div class="raia-info">
-                <span class="raia-lv-tag" style="background:#c9a800; color:#000;">Raia 2 · Intermediário</span>
+                <span class="raia-lv-tag" style="background:#c9a800; color:#000;">Intermediária / Bilevel</span>
                 <h3 class="raia-heading">Nível intermediário</h3>
-                <p class="raia-p">Para quem já domina o equilíbrio e quer começar a passar por obstáculos. Rails e kicker de tamanho moderado.</p>
+                <p class="raia-p">Apenas para quem já domina o esporte, já sabe fazer as curvas e já passou antes em outros obstáculos. Aqui você irá se desenvolver com os principais obstáculos encontrados no esporte e, se você já anda bem, subir e descer o Bilevel.</p>
                 <div class="obs-chips">
                     <span class="obs-chip" style="background:rgba(255,215,0,0.1);border-color:rgba(255,215,0,0.25);">⬜ 2× Rail</span>
                     <span class="obs-chip" style="background:rgba(255,215,0,0.1);border-color:rgba(255,215,0,0.25);">🔺 Kicker</span>
@@ -1805,9 +1805,9 @@
         <!-- Raia 1 — Avançado -->
         <div class="raia-col raia-adv">
             <div class="raia-info">
-                <span class="raia-lv-tag adv">Raia 1 · Avançado</span>
+                <span class="raia-lv-tag adv">Avançado</span>
                 <h3 class="raia-heading">Para quem quer voar</h3>
-                <p class="raia-p">Kickers maiores, pirâmides, rails longos e cabo rápido. Suba o nível, acerte os saltos e leve seu wakeboard a outro patamar.</p>
+                <p class="raia-p">Aqui o próprio nome já diz: precisa estar pronto, pois nela existem diversos obstáculos, todos com um nível de complexidade alto! Para quem quer elevar o nível e ter uma experiência "gringa".</p>
                 <div class="obs-chips">
                     <span class="obs-chip">🔺 2× Pirâmide</span>
                     <span class="obs-chip">⬛ 2× Kicker Grande</span>
@@ -1829,8 +1829,7 @@
             </video>
             <div class="raia-video-overlay"></div>
             <div class="raia-vid-label">
-                <span class="rvl-name" style="color:#00c8ff;">Raia 3</span>
-                <span class="rvl-sub">Iniciante</span>
+                <span class="rvl-name" style="color:#00c8ff;">Iniciante</span>
             </div>
             <button class="sound-btn" id="sbtn-3" onclick="toggleRaiaSound(3)" title="Ativar som">
                 <svg viewBox="0 0 24 24"><path d="M16.5 12A4.5 4.5 0 0 0 14 7.97v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.92 8.92 0 0 0 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 0 0 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
@@ -1845,8 +1844,8 @@
             </video>
             <div class="raia-video-overlay"></div>
             <div class="raia-vid-label">
-                <span class="rvl-name" style="color:#FFD700;">Raia 2</span>
-                <span class="rvl-sub">Intermediário</span>
+                <span class="rvl-name" style="color:#FFD700;">Intermediária</span>
+                <span class="rvl-sub">Bilevel</span>
             </div>
             <button class="sound-btn" id="sbtn-2" onclick="toggleRaiaSound(2)" title="Ativar som">
                 <svg viewBox="0 0 24 24"><path d="M16.5 12A4.5 4.5 0 0 0 14 7.97v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.92 8.92 0 0 0 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 0 0 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
@@ -1861,8 +1860,7 @@
             </video>
             <div class="raia-video-overlay"></div>
             <div class="raia-vid-label">
-                <span class="rvl-name" style="color:#FF6300;">Raia 1</span>
-                <span class="rvl-sub">Avançado</span>
+                <span class="rvl-name" style="color:#FF6300;">Avançado</span>
             </div>
             <button class="sound-btn" id="sbtn-1" onclick="toggleRaiaSound(1)" title="Ativar som">
                 <svg viewBox="0 0 24 24"><path d="M16.5 12A4.5 4.5 0 0 0 14 7.97v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.92 8.92 0 0 0 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 0 0 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
@@ -1904,7 +1902,7 @@
                 </div>
                 <div class="pval">R$ 100</div>
                 <div class="pdur">15 min / sessão</div>
-                <div class="pnote">Inclui day use · Instrutor incluso · Agendamento pelo app</div>
+                <div class="pnote">Inclui day use · Instrutor incluso · Agendamento pelo app · Idade mín. 4 anos · Peso máx. 120 kg</div>
             </div>
             <div class="price-row">
                 <div>
@@ -1913,7 +1911,7 @@
                 </div>
                 <div class="pval">R$ 80</div>
                 <div class="pdur">15 min / sessão</div>
-                <div class="pnote">Inclui day use · Proibido quilhas nos obstáculos</div>
+                <div class="pnote">Inclui day use · Proibido quilhas nos obstáculos · Idade mín. 4 anos · Peso máx. 120 kg</div>
             </div>
             <div class="price-row">
                 <div>
@@ -1940,7 +1938,16 @@
                 </div>
                 <div class="pval">R$ 40</div>
                 <div class="pdur">30 min</div>
-                <div class="pnote">Individual · Colete incluso · Equip. próprio = gratuito (só day use)</div>
+                <div class="pnote">Individual · Colete incluso · Equip. próprio = incluso no day use</div>
+            </div>
+            <div class="price-row">
+                <div>
+                    <div class="pname">Sinuca</div>
+                    <div class="pdetail">Mesa disponível no parque</div>
+                </div>
+                <div class="pval">R$ 50</div>
+                <div class="pdur">por hora</div>
+                <div class="pnote">Pague no balcão no dia</div>
             </div>
             <div class="price-row">
                 <div>
