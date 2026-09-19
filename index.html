@@ -324,7 +324,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        #servicos .services-grid .svc-card { flex: 0 1 calc((100% - 2rem) / 3); }
+        #servicos .services-grid .svc-card { flex: 0 1 calc((100% - 3rem) / 4); }
 
         .svc-card {
             position: relative;
@@ -543,6 +543,15 @@
         .dayuse-price-pill .pp-val {
             font-size: 1.4rem;
             font-weight: 900;
+        }
+
+        .dayuse-price-pill .pp-note {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-align: center;
+            opacity: 0.75;
+            margin-top: 0.3rem;
+            line-height: 1.4;
         }
 
         @media (max-width: 900px) {
@@ -1388,9 +1397,10 @@
                     <span class="pp-label">Entrada inteira</span>
                     <span class="pp-val">R$ 60</span>
                 </div>
-                <div class="dayuse-price-pill" style="background: rgba(255,99,0,0.15); border: 1px solid var(--orange);">
+                <div class="dayuse-price-pill" style="background: rgba(255,99,0,0.15); border: 1px solid var(--orange); border-radius: 18px;">
                     <span class="pp-label" style="color:var(--orange);">Meia-entrada</span>
                     <span class="pp-val" style="color:var(--orange);">R$ 30</span>
+                    <span class="pp-note">Crianças até 9 anos, Idosos 60+,<br>Estudantes e PCD</span>
                 </div>
                 <a href="#day-use" class="btn-primary" style="text-decoration:none;">Ver tudo incluso</a>
             </div>
