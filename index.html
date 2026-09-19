@@ -324,7 +324,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        #servicos .services-grid .svc-card { flex: 0 1 calc((100% - 3rem) / 4); }
+        #servicos .services-grid .svc-card { flex: 0 1 calc((100% - 2rem) / 3); }
 
         .svc-card {
             position: relative;
@@ -1501,17 +1501,6 @@
                     <div class="svc-desc">Piscina particular à beira da represa, perfeita pra relaxar entre uma atividade e outra.</div>
                 </div>
             </div>
-            <div class="svc-card static">
-                <video autoplay muted loop playsinline preload="metadata">
-                    <source src="Videos/Atividades/Natacao%20em%20aguas%20abertas%201_hq.mp4" media="(min-width:769px)" type="video/mp4">
-                    <source src="Videos/Atividades/Natacao%20em%20aguas%20abertas%201.mp4" type="video/mp4">
-                </video>
-                <div class="svc-overlay">
-                    <span class="svc-price">incluso no day use</span>
-                    <div class="svc-name">Natação em Águas Abertas</div>
-                    <div class="svc-desc">Represa de nascente natural, água limpa e corrente.</div>
-                </div>
-            </div>
         </div>
 
         <div class="not-included-bar reveal">
@@ -1576,6 +1565,17 @@
                     <div class="svc-desc">Mesa de sinuca disponível para jogar por hora.</div>
                 </div>
             </div>
+            <div class="svc-card static">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="Videos/Atividades/Natacao%20em%20aguas%20abertas%201_hq.mp4" media="(min-width:769px)" type="video/mp4">
+                    <source src="Videos/Atividades/Natacao%20em%20aguas%20abertas%201.mp4" type="video/mp4">
+                </video>
+                <div class="svc-overlay">
+                    <span class="svc-price">R$ 60</span>
+                    <div class="svc-name">Natação em Águas Abertas</div>
+                    <div class="svc-desc">Represa de nascente natural, água limpa e corrente.</div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1589,177 +1589,6 @@
         <p class="section-sub">Vista de cima: 3 raias paralelas no lago, cada uma com obstáculos para um nível diferente.</p>
     </div>
 
-    <!-- LAKE SVG TOP-DOWN -->
-    <div class="lake-svg-wrap" style="background:#030d16;">
-        <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
-            <defs>
-                <radialGradient id="lake-g" cx="50%" cy="65%" r="60%">
-                    <stop offset="0%" stop-color="#1d4030"/>
-                    <stop offset="100%" stop-color="#0a1e14"/>
-                </radialGradient>
-            </defs>
-
-            <!-- Land / fields background -->
-            <rect x="0" y="0" width="800" height="500" fill="#1e2e16"/>
-            <path d="M 0,0 L 800,0 L 800,155 Q 400,132 0,155 Z" fill="#253c1a"/>
-            <path d="M 0,0 L 800,0 L 800,148 Q 400,126 0,148 Z" fill="#2c4820"/>
-
-            <!-- Red earth road paths -->
-            <path d="M 310,0 C 330,45 355,90 370,130" stroke="#7a3c12" stroke-width="7" fill="none" opacity="0.55"/>
-            <path d="M 495,0 C 484,35 468,75 455,130" stroke="#7a3c12" stroke-width="6" fill="none" opacity="0.45"/>
-
-            <!-- Shore vegetation -->
-            <ellipse cx="70"  cy="142" rx="28" ry="11" fill="#163812" opacity="0.8"/>
-            <ellipse cx="122" cy="140" rx="22" ry="10" fill="#1a4016" opacity="0.75"/>
-            <ellipse cx="445" cy="130" rx="20" ry="9"  fill="#163812" opacity="0.7"/>
-            <ellipse cx="478" cy="132" rx="16" ry="8"  fill="#1a4016" opacity="0.7"/>
-            <ellipse cx="510" cy="134" rx="13" ry="7"  fill="#163812" opacity="0.65"/>
-            <ellipse cx="685" cy="138" rx="22" ry="10" fill="#163812" opacity="0.7"/>
-            <ellipse cx="730" cy="142" rx="18" ry="9"  fill="#1a4016" opacity="0.65"/>
-
-            <!-- Building / restaurant (top-right) -->
-            <rect x="598" y="120" width="58" height="30" rx="3" fill="#8B3A15" opacity="0.9"/>
-            <rect x="576" y="126" width="28" height="24" rx="2" fill="#7a3312" opacity="0.85"/>
-            <!-- Pool -->
-            <rect x="538" y="122" width="26" height="18" rx="3" fill="#3a7fbd" opacity="0.75"/>
-            <!-- Beach strip -->
-            <ellipse cx="570" cy="155" rx="42" ry="7" fill="#c8a44a" opacity="0.45"/>
-
-            <!-- Laguinho — small pond near advanced raia (upper right shore) -->
-            <ellipse cx="668" cy="135" rx="44" ry="18" fill="#0d2c1c" stroke="rgba(255,255,255,0.07)" stroke-width="0.8"/>
-            <ellipse cx="666" cy="132" rx="30" ry="11" fill="rgba(20,70,45,0.55)"/>
-            <ellipse cx="660" cy="130" rx="14" ry="6" fill="rgba(30,90,58,0.4)"/>
-            <text x="645" y="157" fill="rgba(255,255,255,0.22)" font-size="7.5" font-family="sans-serif" letter-spacing="0.5">laguinho</text>
-
-            <!-- Lake water -->
-            <path d="M 18,152 Q 400,130 782,152 L 765,490 Q 400,510 35,490 Z" fill="url(#lake-g)"/>
-
-            <!-- Water shimmer -->
-            <ellipse cx="400" cy="330" rx="280" ry="70" fill="rgba(255,255,255,0.018)"/>
-            <ellipse cx="250" cy="400" rx="140" ry="35" fill="rgba(255,255,255,0.012)"/>
-
-            <!-- Dock platform — Floats area (top left) -->
-            <g transform="translate(70,156) rotate(-4)">
-                <rect x="0" y="0" width="90" height="22" rx="3" fill="#8B6914" opacity="0.88"/>
-                <line x1="0" y1="11" x2="90" y2="11" stroke="rgba(255,255,255,0.28)" stroke-width="0.8"/>
-                <!-- Floats (inflatable shapes) -->
-                <rect x="-12" y="5" width="12" height="12" rx="5" fill="#e8c84a" opacity="0.7"/>
-                <rect x="90" y="4" width="14" height="14" rx="6" fill="#4ab0e8" opacity="0.65"/>
-            </g>
-            <text x="76" y="192" fill="rgba(255,255,255,0.5)" font-size="9" font-family="sans-serif" font-weight="700" letter-spacing="1.5">FLOATS</text>
-
-            <!-- ══════════ RAIA 3 — INICIANTE (left) ══════════ -->
-            <!-- Lane highlight band -->
-            <line x1="222" y1="158" x2="188" y2="486" stroke="rgba(0,185,230,0.14)" stroke-width="22" stroke-linecap="round"/>
-            <!-- Lane center -->
-            <line x1="222" y1="158" x2="188" y2="486" stroke="rgba(0,185,230,0.38)" stroke-width="1.5" stroke-dasharray="14 9"/>
-            <!-- Motion path -->
-            <path id="r3p" d="M 222,160 L 188,484" fill="none"/>
-
-            <!-- Label -->
-            <text x="256" y="182" fill="rgba(0,210,255,0.85)" font-size="11" font-family="sans-serif" font-weight="700" letter-spacing="2">RAIA 3</text>
-            <text x="258" y="196" fill="rgba(0,210,255,0.5)" font-size="8" font-family="sans-serif">INICIANTE</text>
-            <text x="258" y="209" fill="rgba(0,210,255,0.4)" font-size="7.5" font-family="sans-serif">Sem obstáculos</text>
-
-            <!-- Rider R3 (slow, teal) -->
-            <circle r="11" fill="rgba(0,200,255,0.2)"><animateMotion dur="5s" repeatCount="indefinite" begin="0s"><mpath href="#r3p"/></animateMotion></circle>
-            <circle r="7"  fill="#00c8ff" opacity="0.92"><animateMotion dur="5s" repeatCount="indefinite" begin="0s"><mpath href="#r3p"/></animateMotion></circle>
-            <circle r="3.5" fill="white"><animateMotion dur="5s" repeatCount="indefinite" begin="0s"><mpath href="#r3p"/></animateMotion></circle>
-
-            <!-- ══════════ RAIA 2 — INTERMEDIÁRIO (center) ══════════ -->
-            <line x1="396" y1="146" x2="360" y2="486" stroke="rgba(255,215,0,0.14)" stroke-width="22" stroke-linecap="round"/>
-            <line x1="396" y1="146" x2="360" y2="486" stroke="rgba(255,215,0,0.38)" stroke-width="1.5" stroke-dasharray="14 9"/>
-            <path id="r2p" d="M 396,148 L 360,484" fill="none"/>
-
-            <!-- Rail 1 — 40-52% along lane -->
-            <g transform="translate(380,296) rotate(-6)">
-                <rect x="-5" y="-28" width="10" height="56" rx="4.5" fill="#dde2e8"/>
-                <rect x="-4" y="-27" width="8" height="5" rx="2" fill="rgba(255,255,255,0.75)"/>
-            </g>
-            <!-- Rail 2 — 63-75% along lane -->
-            <g transform="translate(372,377) rotate(-6)">
-                <rect x="-5" y="-22" width="10" height="44" rx="4.5" fill="#dde2e8"/>
-                <rect x="-4" y="-21" width="8" height="5" rx="2" fill="rgba(255,255,255,0.75)"/>
-            </g>
-            <!-- Kicker — 84% along lane -->
-            <g transform="translate(366,432) rotate(-6)">
-                <polygon points="-14,18 14,18 7,-18 -7,-18" fill="#e8ecf0"/>
-                <line x1="-14" y1="18" x2="14" y2="18" stroke="rgba(255,255,255,0.85)" stroke-width="1.2" stroke-linecap="round"/>
-                <polygon points="-14,18 14,18 7,-18 -7,-18" fill="rgba(0,0,0,0.04)"/>
-            </g>
-
-            <!-- Label -->
-            <text x="432" y="168" fill="rgba(255,215,0,0.85)" font-size="11" font-family="sans-serif" font-weight="700" letter-spacing="2">RAIA 2</text>
-            <text x="434" y="182" fill="rgba(255,215,0,0.5)" font-size="8" font-family="sans-serif">INTERMEDIÁRIO</text>
-            <text x="434" y="196" fill="rgba(255,215,0,0.4)" font-size="7.5" font-family="sans-serif">Rail reto</text>
-            <text x="434" y="207" fill="rgba(255,215,0,0.4)" font-size="7.5" font-family="sans-serif">Rail curvo</text>
-            <text x="434" y="218" fill="rgba(255,215,0,0.4)" font-size="7.5" font-family="sans-serif">Kicker médio</text>
-            <text x="434" y="229" fill="rgba(255,215,0,0.4)" font-size="7.5" font-family="sans-serif">Wave ramp</text>
-            <text x="434" y="240" fill="rgba(255,215,0,0.4)" font-size="7.5" font-family="sans-serif">Barril</text>
-            <text x="434" y="251" fill="rgba(255,215,0,0.4)" font-size="7.5" font-family="sans-serif">Slider em S</text>
-
-            <!-- Rider R2 (medium, gold) -->
-            <circle r="11" fill="rgba(255,215,0,0.2)"><animateMotion dur="4s" repeatCount="indefinite" begin="-1.7s"><mpath href="#r2p"/></animateMotion></circle>
-            <circle r="7"  fill="#FFD700" opacity="0.92"><animateMotion dur="4s" repeatCount="indefinite" begin="-1.7s"><mpath href="#r2p"/></animateMotion></circle>
-            <circle r="3.5" fill="white"><animateMotion dur="4s" repeatCount="indefinite" begin="-1.7s"><mpath href="#r2p"/></animateMotion></circle>
-
-            <!-- ══════════ RAIA 1 — AVANÇADO (right) ══════════ -->
-            <line x1="565" y1="153" x2="528" y2="486" stroke="rgba(255,99,0,0.17)" stroke-width="22" stroke-linecap="round"/>
-            <line x1="565" y1="153" x2="528" y2="486" stroke="rgba(255,99,0,0.42)" stroke-width="1.5" stroke-dasharray="14 9"/>
-            <path id="r1p" d="M 565,155 L 528,484" fill="none"/>
-
-            <!-- Kicker 1 — 21% (small box) -->
-            <g transform="translate(557,223) rotate(-6)">
-                <rect x="-9" y="-11" width="18" height="22" rx="3" fill="#e0e5eb"/>
-                <rect x="-8" y="-10" width="16" height="5" rx="2" fill="rgba(255,255,255,0.75)"/>
-            </g>
-            <!-- Kicker 2 — 31% (small box) -->
-            <g transform="translate(554,256) rotate(-6)">
-                <rect x="-9" y="-11" width="18" height="22" rx="3" fill="#e0e5eb"/>
-                <rect x="-8" y="-10" width="16" height="5" rx="2" fill="rgba(255,255,255,0.75)"/>
-            </g>
-            <!-- Kicker 3 — 42% (small box) -->
-            <g transform="translate(550,293) rotate(-6)">
-                <rect x="-9" y="-11" width="18" height="22" rx="3" fill="#e0e5eb"/>
-                <rect x="-8" y="-10" width="16" height="5" rx="2" fill="rgba(255,255,255,0.75)"/>
-            </g>
-            <!-- Long rail / bilevel — 62-77% -->
-            <g transform="translate(539,383) rotate(-6)">
-                <rect x="-5" y="-30" width="10" height="60" rx="4.5" fill="#dde2e8"/>
-                <rect x="-4" y="-29" width="8" height="5" rx="2" fill="rgba(255,255,255,0.8)"/>
-                <!-- bilevel upper deck -->
-                <rect x="-3" y="-22" width="6" height="42" rx="3" fill="rgba(255,255,255,0.13)"/>
-            </g>
-
-            <!-- Label -->
-            <text x="600" y="175" fill="rgba(255,99,0,0.9)" font-size="11" font-family="sans-serif" font-weight="700" letter-spacing="2">RAIA 1</text>
-            <text x="602" y="189" fill="rgba(255,99,0,0.5)" font-size="8" font-family="sans-serif">AVANÇADO</text>
-            <text x="602" y="203" fill="rgba(255,99,0,0.4)" font-size="7.5" font-family="sans-serif">Kicker grande</text>
-            <text x="602" y="214" fill="rgba(255,99,0,0.4)" font-size="7.5" font-family="sans-serif">Kicker duplo</text>
-            <text x="602" y="225" fill="rgba(255,99,0,0.4)" font-size="7.5" font-family="sans-serif">Pirâmide</text>
-            <text x="602" y="236" fill="rgba(255,99,0,0.4)" font-size="7.5" font-family="sans-serif">Rail longo</text>
-            <text x="602" y="247" fill="rgba(255,99,0,0.4)" font-size="7.5" font-family="sans-serif">Rail bilevel</text>
-            <text x="602" y="258" fill="rgba(255,99,0,0.4)" font-size="7.5" font-family="sans-serif">Box reto</text>
-            <text x="602" y="269" fill="rgba(255,99,0,0.4)" font-size="7.5" font-family="sans-serif">Wave ramp XL</text>
-            <text x="602" y="280" fill="rgba(255,99,0,0.4)" font-size="7.5" font-family="sans-serif">Slider em C</text>
-            <text x="602" y="291" fill="rgba(255,99,0,0.4)" font-size="7.5" font-family="sans-serif">Barril duplo</text>
-
-            <!-- Rider R1 (fast, orange) -->
-            <circle r="11" fill="rgba(255,99,0,0.22)"><animateMotion dur="3.2s" repeatCount="indefinite" begin="-2.4s"><mpath href="#r1p"/></animateMotion></circle>
-            <circle r="7"  fill="#FF6300" opacity="0.95"><animateMotion dur="3.2s" repeatCount="indefinite" begin="-2.4s"><mpath href="#r1p"/></animateMotion></circle>
-            <circle r="3.5" fill="white"><animateMotion dur="3.2s" repeatCount="indefinite" begin="-2.4s"><mpath href="#r1p"/></animateMotion></circle>
-
-            <!-- Legend -->
-            <g transform="translate(22,462)">
-                <circle cx="8" cy="8" r="6" fill="#00c8ff"/>
-                <text x="20" y="13" fill="rgba(255,255,255,0.5)" font-size="10" font-family="sans-serif">Iniciante</text>
-                <circle cx="118" cy="8" r="6" fill="#FFD700"/>
-                <text x="130" y="13" fill="rgba(255,255,255,0.5)" font-size="10" font-family="sans-serif">Intermediário</text>
-                <circle cx="260" cy="8" r="6" fill="#FF6300"/>
-                <text x="272" y="13" fill="rgba(255,255,255,0.5)" font-size="10" font-family="sans-serif">Avançado</text>
-            </g>
-        </svg>
-    </div>
 
     <!-- INFO CARDS -->
     <div class="raias-cols">
@@ -1941,9 +1770,9 @@
                     <div class="pname">Natação em Águas Abertas</div>
                     <div class="pdetail">Treino livre no lago</div>
                 </div>
-                <div class="pval free">Grátis</div>
+                <div class="pval">R$ 60</div>
                 <div class="pdur">Livre</div>
-                <div class="pnote">Incluso na entrada · Boia sinalizadora obrigatória</div>
+                <div class="pnote">Incluso no day use · Boia sinalizadora obrigatória</div>
             </div>
             <div class="price-row">
                 <div>
@@ -2073,7 +1902,7 @@
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-a">
-                    <div class="faq-a-inner">Prainha particular, piscina, bangalôs, espreguiçadeiras, quadras de areia (beach tennis, vôlei e futevôlei), slackline, futsinuca, cornhole, dardos, bets, natação em águas abertas, acesso ao restaurante, redário e vestiários. Tudo incluso nos R$ 60. Fora isso: caiaque/SUP, floats e consumo no restaurante são cobrados à parte. Já o wakeboard tem a entrada inclusa no valor da sessão: quem agenda o wake não paga o day use separado.</div>
+                    <div class="faq-a-inner">Prainha particular, piscina, bangalôs, espreguiçadeiras, quadras de areia (beach tennis, vôlei e futevôlei), slackline, futsinuca, cornhole, dardos, bets, acesso ao restaurante, redário e vestiários. Tudo incluso nos R$ 60. Fora isso: caiaque/SUP, floats, natação em águas abertas e consumo no restaurante são cobrados à parte. Já o wakeboard tem a entrada inclusa no valor da sessão: quem agenda o wake não paga o day use separado.</div>
                 </div>
             </div>
 
