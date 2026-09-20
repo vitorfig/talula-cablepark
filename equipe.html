@@ -94,9 +94,28 @@
             box-shadow: 0 8px 30px rgba(0,0,0,0.4);
         }
         .equipe-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+        .equipe-photo.placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--dark2) 100%);
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.85);
+        }
         .equipe-card { text-align: center; }
         .equipe-name { font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
         .equipe-bio { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.55; max-width: 220px; margin: 0 auto; }
+
+        .equipe-section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #fff;
+            margin: 1rem 0 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
 
         @media (max-width: 900px) {
             .equipe-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem 1.5rem; }
@@ -170,31 +189,94 @@
     <div class="equipe-grid">
         <div class="equipe-card">
             <div class="equipe-photo">
-                <img src="Videos/Equipe/Lara%20Marchesi.png" alt="Lara Marchesi">
+                <img src="Videos/Equipe/Lara.jpg" alt="Lara">
             </div>
-            <div class="equipe-name">Lara Marchesi</div>
-            <div class="equipe-bio">Wakeboarder, idealizadora do Wakefest, Zuno Cable Park e sócia do Talula Cable Park e SKZ Sistemas de Wake</div>
+            <div class="equipe-name">Lara</div>
+            <div class="equipe-bio">Wakeboarder, instrutora e arquiteta, idealizadora do Talula Cable Park</div>
         </div>
         <div class="equipe-card">
             <div class="equipe-photo">
-                <img src="Videos/Equipe/Pedro%20Zucki.png" alt="Pedro Zucki">
+                <img src="Videos/Equipe/Diego.jpg" alt="Diego">
             </div>
-            <div class="equipe-name">Pedro Zucki</div>
-            <div class="equipe-bio">Wakeboarder, idealizador do Wakefest, Zuno Cable Park e sócio do Talula Cable Park e SKZ Sistemas de Wake</div>
+            <div class="equipe-name">Diego</div>
+            <div class="equipe-bio">Administrativo, instrutor de wake, idealizador do Talula Cable Park</div>
         </div>
         <div class="equipe-card">
             <div class="equipe-photo">
-                <img src="Videos/Equipe/Diego%20Bernal.png" alt="Diego Bernal">
+                <img src="Videos/Equipe/Bia.jpg" alt="Bia">
             </div>
-            <div class="equipe-name">Diego Bernal</div>
-            <div class="equipe-bio">Wakeboarder, idealizador do Wakefest, Zuno Cable Park e sócio do Talula Cable Park e SKZ Sistemas de Wake</div>
+            <div class="equipe-name">Bia</div>
+            <div class="equipe-bio">Wakeboarder, instrutora e psicóloga, idealizadora do Wakefest</div>
         </div>
         <div class="equipe-card">
             <div class="equipe-photo">
-                <img src="Videos/Equipe/Bia%20Nodari.jpg" alt="Bia Nodari">
+                <img src="Videos/Equipe/Pedro.jpg" alt="Pedro">
             </div>
-            <div class="equipe-name">Bia Nodari</div>
-            <div class="equipe-bio">Wakeboarder, idealizadora do Wakefest, Zuno Cable Park e sócia do Talula Cable Park e SKZ Sistemas de Wake</div>
+            <div class="equipe-name">Pedro</div>
+            <div class="equipe-bio">Wakeboarder, instrutor de wake, idealizador do Wakefest, responsável pelas manutenções e benfeitorias</div>
+        </div>
+        <div class="equipe-card">
+            <div class="equipe-photo">
+                <img src="Videos/Equipe/Giulia.jpg" alt="Giulia">
+            </div>
+            <div class="equipe-name">Giulia</div>
+            <div class="equipe-bio">Atendimento ao cliente, criadora de conteúdo</div>
+        </div>
+        <div class="equipe-card">
+            <div class="equipe-photo">
+                <img src="Videos/Equipe/Javier.jpg" alt="Javier">
+            </div>
+            <div class="equipe-name">Javier</div>
+            <div class="equipe-bio">Organização, limpeza, operador de wake, atendimento e cozinha</div>
+        </div>
+    </div>
+
+    <h2 class="equipe-section-title">Equipe adicional</h2>
+    <div class="equipe-grid">
+        <div class="equipe-card">
+            <div class="equipe-photo">
+                <img src="Videos/Equipe/Buni.jpg" alt="Buni">
+            </div>
+            <div class="equipe-name">Buni</div>
+            <div class="equipe-bio">Instrutor de wake, monitor do Floats, pro wakeskater</div>
+        </div>
+        <div class="equipe-card">
+            <div class="equipe-photo">
+                <img src="Videos/Equipe/Renix.jpg" alt="Renix">
+            </div>
+            <div class="equipe-name">Renix</div>
+            <div class="equipe-bio">Instrutor de wake, monitor do Floats, responsável de marketing</div>
+        </div>
+        <div class="equipe-card">
+            <div class="equipe-photo placeholder">F</div>
+            <div class="equipe-name">Felipe</div>
+            <div class="equipe-bio">Operador de wake, monitor do Floats</div>
+        </div>
+        <div class="equipe-card">
+            <div class="equipe-photo">
+                <img src="Videos/Equipe/Fran.jpg" alt="Fran">
+            </div>
+            <div class="equipe-name">Fran</div>
+            <div class="equipe-bio">Responsável por limpeza e porções</div>
+        </div>
+        <div class="equipe-card">
+            <div class="equipe-photo">
+                <img src="Videos/Equipe/Val.jpg" alt="Val">
+            </div>
+            <div class="equipe-name">Val</div>
+            <div class="equipe-bio">Responsável por limpeza e pratos</div>
+        </div>
+        <div class="equipe-card">
+            <div class="equipe-photo">
+                <img src="Videos/Equipe/Pamela.jpg" alt="Pamela">
+            </div>
+            <div class="equipe-name">Pamela</div>
+            <div class="equipe-bio">Responsável pelos drinks e açaí</div>
+        </div>
+        <div class="equipe-card">
+            <div class="equipe-photo placeholder">G</div>
+            <div class="equipe-name">Gabi</div>
+            <div class="equipe-bio">Atendimento ao cliente, monitor do Floats</div>
         </div>
     </div>
 </div>
